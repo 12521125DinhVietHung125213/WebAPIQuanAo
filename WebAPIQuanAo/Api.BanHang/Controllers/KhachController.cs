@@ -22,6 +22,13 @@ namespace Api.BanHang.Controllers
             return _khachBusiness.GetDatabyID(MaKhachHang);
         }
 
+        [Route("get-all")]
+        [HttpGet]
+        public KhachModel GetAll()
+        {
+            return _khachBusiness.GetAll();
+        }
+
 
         [Route("create-khach")]
         [HttpPost]

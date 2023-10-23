@@ -28,6 +28,22 @@ namespace DataAccessLayer
             }
         }
 
+        public SanPhamModel GetAll()
+        {
+            string msgErrror = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgErrror, "sp_sanpham_get_all");
+                if (!string.IsNullOrEmpty(msgErrror))
+                    throw new Exception(msgErrror);
+                return dt.ConvertTo<SanPhamModel>().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public bool Create(SanPhamModel model)
         {
             string msgError = "";

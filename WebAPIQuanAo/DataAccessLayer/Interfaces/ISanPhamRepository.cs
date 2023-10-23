@@ -10,6 +10,8 @@ namespace DataAccessLayer
     public partial interface ISanPhamRepository
     {
         SanPhamModel GetDatabyID(string id);
+
+        SanPhamModel GetAll();
         bool Create(SanPhamModel model);
         bool Update(SanPhamModel model);    
 

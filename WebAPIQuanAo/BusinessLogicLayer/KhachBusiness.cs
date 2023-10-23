@@ -15,6 +15,10 @@ namespace BusinessLogicLayer
         {
             return _res.GetDatabyID(id);
         }
+        public KhachModel GetAll()
+        {
+            return _res.GetAll();
+        }
         public bool Create(KhachModel model)
         {
             return _res.Create(model);

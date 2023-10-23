@@ -21,6 +21,10 @@ namespace BusinessLogicLayer
         {
             return _res.GetDatabyID(id);
         }
+        public DanhMucModel GetAll()
+        {
+            return _res.GetAll();
+        }
         public bool Create(DanhMucModel model)
         {
             return _res.Create(model);

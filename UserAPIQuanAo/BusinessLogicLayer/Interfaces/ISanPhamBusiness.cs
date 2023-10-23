@@ -9,6 +9,7 @@ namespace BusinessLogicLayer
 {
     public partial interface ISanPhamBusiness
     {
-        SanPhamModel GetChiTietSanPham(int id);
+        SanPhamModel GetDatabyID(string id);
+        SanPhamModel GetAll();
     }
 }

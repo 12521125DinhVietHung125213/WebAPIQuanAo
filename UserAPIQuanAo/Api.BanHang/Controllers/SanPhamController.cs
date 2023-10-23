@@ -14,11 +14,22 @@ namespace Api.BanHang.Controllers
         {
             _sanPhamBusiness = sanPhamBusiness;
         }
-        [Route("get-by-id/{id}")]
+
+        [Route("get-by-id/{MaSanPham}")]
         [HttpGet]
-        public SanPhamModel GetDatabyID(int id)
+        public SanPhamModel GetDatabyID(string MaSanPham)
         {
-            return _sanPhamBusiness.GetChiTietSanPham(id);
-        } 
+            return _sanPhamBusiness.GetDatabyID(MaSanPham);
+        }
+
+        [Route("get-all")]
+        [HttpGet]
+        public SanPhamModel GetAll()
+        {
+            return _sanPhamBusiness.GetAll();
+        }
+
+    
+
     }
 }

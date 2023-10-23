@@ -10,6 +10,7 @@ namespace BusinessLogicLayer
     public partial interface IKhachBusiness
     {
         KhachModel GetDatabyID(string id);
+        KhachModel GetAll();
         bool Create(KhachModel model);
         bool Update(KhachModel model);
         bool Delete(string MaKhachHang);

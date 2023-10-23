@@ -10,6 +10,7 @@ namespace DataAccessLayer.Interfaces
     public partial interface IDanhMucReporitory
     {
         DanhMucModel GetDatabyID(string id);
+        DanhMucModel GetAll();
         bool Create(DanhMucModel model);
         bool Update(DanhMucModel model);    
         bool Delete(DanhMucModel model);

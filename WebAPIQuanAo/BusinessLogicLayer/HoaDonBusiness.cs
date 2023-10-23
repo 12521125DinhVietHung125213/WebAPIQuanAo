@@ -11,9 +11,18 @@ namespace BusinessLogicLayer
         {
             _res = res;
         }
+        public HoaDonModel GetDatabyID(string id)
+        {
+            return _res.GetDatabyID(id);
+        }
         public bool Create(HoaDonModel model)
         {
             return _res.Create(model);
+        }
+
+        public bool Update(HoaDonModel model)
+        {
+            return _res.Update(model);    
         }
         
     }

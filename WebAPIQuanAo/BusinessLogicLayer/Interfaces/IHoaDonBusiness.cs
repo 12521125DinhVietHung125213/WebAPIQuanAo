@@ -10,5 +10,8 @@ namespace BusinessLogicLayer
     public partial interface IHoaDonBusiness
     {
         bool Create(HoaDonModel model);
+        HoaDonModel GetDatabyID(string id);
+
+        bool Update(HoaDonModel model);
     }
 }

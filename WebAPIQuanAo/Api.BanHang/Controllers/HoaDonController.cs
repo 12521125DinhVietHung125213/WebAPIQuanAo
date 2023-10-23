@@ -15,6 +15,13 @@ namespace Api.BanHang.Controllers
             _hoadonBusiness = hoadonBusiness;
         }
 
+        [Route("get-by-id/{MaHoaDon}")]
+        [HttpGet]
+        public HoaDonModel GetDatabyID(string MaHoaDon)
+        {
+            return _hoadonBusiness.GetDatabyID(MaHoaDon);
+        }
+
         [Route("create-hoadon")]
         [HttpPost]
         public HoaDonModel CreateItem([FromBody] HoaDonModel model)
@@ -22,5 +29,15 @@ namespace Api.BanHang.Controllers
             _hoadonBusiness.Create(model);
             return model;
         }
+
+        [Route("Update-hoadon")]
+        [HttpPost]
+        public HoaDonModel UpdateItem([FromBody] HoaDonModel model)
+        {
+            _hoadonBusiness.Update(model);
+            return model;
+        }
+
+
     }
 }

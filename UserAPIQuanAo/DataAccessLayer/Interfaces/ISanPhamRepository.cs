@@ -9,7 +9,8 @@ namespace DataAccessLayer
 {
     public partial interface ISanPhamRepository
     {
-        SanPhamModel GetChiTietSanPham(int id);
-         
+        SanPhamModel GetDatabyID(string id);
+
+        SanPhamModel GetAll();
     }
 }

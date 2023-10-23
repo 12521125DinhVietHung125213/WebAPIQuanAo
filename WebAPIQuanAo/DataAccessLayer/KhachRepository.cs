@@ -25,6 +25,23 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
+        public KhachModel GetAll()
+        {
+            string msgErrror = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgErrror, "sp_Khach_get_all");
+                if (!string.IsNullOrEmpty(msgErrror))
+                    throw new Exception(msgErrror);
+                return dt.ConvertTo<KhachModel>().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public bool Create(KhachModel model)
         {
             string msgError = "";

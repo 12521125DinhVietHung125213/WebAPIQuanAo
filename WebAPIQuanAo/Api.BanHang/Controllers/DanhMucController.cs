@@ -21,6 +21,12 @@ namespace Api.BanHang.Controllers
         {
             return _danhMucBusiness.GetDatabyID(MaDanhMuc);
         }
+        [Route("get-all")]
+        [HttpGet]
+        public DanhMucModel GetAll()
+        {
+            return _danhMucBusiness.GetAll();
+        }
 
         [Route("create-DanhMuc")]
         [HttpPost]
