@@ -28,7 +28,7 @@ namespace DataAccessLayer
             }
         }
 
-        public SanPhamModel GetAll()
+        public List<SanPhamModel> GetAll()
         {
             string msgErrror = "";
             try
@@ -36,7 +36,7 @@ namespace DataAccessLayer
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgErrror, "sp_sanpham_get_all");
                 if (!string.IsNullOrEmpty(msgErrror))
                     throw new Exception(msgErrror);
-                return dt.ConvertTo<SanPhamModel>().FirstOrDefault();
+                return dt.ConvertTo<SanPhamModel>().ToList();
             }
             catch (Exception ex)
             {
@@ -56,7 +56,8 @@ namespace DataAccessLayer
                "@TenSanPham", model.TenSanPham,
                "@Gia", model.Gia,
                "@SoLuong", model.SoLuong,
-               "@MauSac", model.MauSac);
+               "@MauSac", model.MauSac,
+               "@Size",model.Size);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);
@@ -76,11 +77,13 @@ namespace DataAccessLayer
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(
                     out msgError,
                     "sp_SanPham_update",
+                "@MaSanPham",model.MaSanPham,
                "@MaDanhMuc", model.MaDanhMuc,
                "@TenSanPham", model.TenSanPham,
                "@Gia", model.Gia,
                "@SoLuong", model.SoLuong,
-               "@MauSac", model.MauSac);
+               "@MauSac", model.MauSac,
+               "@Size",model.Size);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);

@@ -12,8 +12,8 @@ namespace BusinessLogicLayer
 {
     public class DanhMucBusiness:IDanhMucBusiness
     {
-        private IDanhMucReporitory _res;
-        public DanhMucBusiness(IDanhMucReporitory res)
+        private IDanhMucRepository _res;
+        public DanhMucBusiness(IDanhMucRepository res)
         {
             _res = res;
         }
@@ -21,7 +21,7 @@ namespace BusinessLogicLayer
         {
             return _res.GetDatabyID(id);
         }
-        public DanhMucModel GetAll()
+        public List<DanhMucModel> GetAll()
         {
             return _res.GetAll();
         }

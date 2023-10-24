@@ -24,7 +24,7 @@ namespace Api.BanHang.Controllers
 
         [Route("get-all")]
         [HttpGet]
-        public SanPhamModel GetAll()
+        public List<SanPhamModel> GetAll()
         {
             return _sanPhamBusiness.GetAll();
         }
@@ -38,7 +38,7 @@ namespace Api.BanHang.Controllers
         }
 
         [Route("update-SanPham")]
-        [HttpPost]
+        [HttpPut]
         public SanPhamModel UpdateItem([FromBody] SanPhamModel model)
         {
             _sanPhamBusiness.Update(model);
@@ -46,7 +46,7 @@ namespace Api.BanHang.Controllers
         }
 
         [Route("Delete-SanPham")]
-        [HttpPost]
+        [HttpDelete]
         public SanPhamModel DeleteItem([FromBody] SanPhamModel model)
         {
             _sanPhamBusiness.Delete(model);

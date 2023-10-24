@@ -31,7 +31,7 @@ namespace Api.BanHang.Controllers
         }
 
         [Route("Update-hoadon")]
-        [HttpPost]
+        [HttpPut]
         public HoaDonModel UpdateItem([FromBody] HoaDonModel model)
         {
             _hoadonBusiness.Update(model);

@@ -10,5 +10,6 @@ namespace DataModel
         public float Gia { get; set; }
         public int SoLuong { get; set; }
         public string MauSac { get; set; }
+        public string Size { get; set; }
     }
 }

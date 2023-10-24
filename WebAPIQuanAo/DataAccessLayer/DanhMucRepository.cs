@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class DanhMucReporitory:IDanhMucReporitory
+    public class DanhMucRepository:IDanhMucRepository
     {
         private IDatabaseHelper _dbHelper;
-        public DanhMucReporitory(IDatabaseHelper dbHelper)
+        public DanhMucRepository(IDatabaseHelper dbHelper)
         {
             _dbHelper = dbHelper;
         }
@@ -33,7 +33,7 @@ namespace DataAccessLayer
             }
         }
 
-        public DanhMucModel GetAll()
+        public List<DanhMucModel> GetAll()
         {
             string msgErrror = "";
             try
@@ -41,7 +41,7 @@ namespace DataAccessLayer
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgErrror, "sp_danhmuc_get_all");
                 if (!string.IsNullOrEmpty(msgErrror))
                     throw new Exception(msgErrror);
-                return dt.ConvertTo<DanhMucModel>().FirstOrDefault();
+                return dt.ConvertTo<DanhMucModel>().ToList();
             }
             catch (Exception ex)
             {

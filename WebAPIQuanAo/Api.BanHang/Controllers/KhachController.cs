@@ -24,7 +24,7 @@ namespace Api.BanHang.Controllers
 
         [Route("get-all")]
         [HttpGet]
-        public KhachModel GetAll()
+        public List<KhachModel> GetAll()
         {
             return _khachBusiness.GetAll();
         }
@@ -41,7 +41,7 @@ namespace Api.BanHang.Controllers
 
 
         [Route("update-khach")]
-        [HttpPost]
+        [HttpPut]
         public KhachModel UpdateItem([FromBody] KhachModel model)
         {
             _khachBusiness.Update(model);
@@ -51,7 +51,7 @@ namespace Api.BanHang.Controllers
 
 
         [Route("Delete-Khach")]
-        [HttpPost]
+        [HttpDelete]
         public IActionResult DeleteItem(string MaKhachHang )
         {
             _khachBusiness.Delete(MaKhachHang);

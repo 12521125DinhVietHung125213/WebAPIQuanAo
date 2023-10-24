@@ -23,7 +23,7 @@ namespace Api.BanHang.Controllers
         }
         [Route("get-all")]
         [HttpGet]
-        public DanhMucModel GetAll()
+        public List<DanhMucModel> GetAll()
         {
             return _danhMucBusiness.GetAll();
         }
@@ -37,7 +37,7 @@ namespace Api.BanHang.Controllers
         }
 
         [Route("update-DanhMuc")]
-        [HttpPost]
+        [HttpPut]
         public DanhMucModel UpdateItem([FromBody] DanhMucModel model)
         {
             _danhMucBusiness.Update(model);
@@ -47,7 +47,7 @@ namespace Api.BanHang.Controllers
 
 
         [Route("Delete-DanhMuc")]
-        [HttpPost]
+        [HttpDelete]
         public DanhMucModel DeleteItem([FromBody] DanhMucModel model)
         {
             _danhMucBusiness.Delete(model);
