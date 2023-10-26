@@ -6,7 +6,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7040
+          "Port": 44306
         }
       ],
       "UpstreamPathTemplate": "/api-admin/khachhang/{everything}",
@@ -22,7 +22,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7040
+          "Port": 44305
         }
       ],
       "UpstreamPathTemplate": "/api-user/the-loai/{everything}",

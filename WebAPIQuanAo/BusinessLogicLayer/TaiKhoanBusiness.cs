@@ -1,6 +1,4 @@
-﻿using BusinessLogicLayer;
-using BusinessLogicLayer.Interfaces;
-using DataAccessLayer;
+﻿using DataAccessLayer;
 using DataModel;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -11,7 +9,7 @@ using System.Text;
 
 namespace BusinessLogicLayer
 {
-    public class TaiKhoanBusiness:ITaiKhoanBusiness
+    public class TaiKhoanBusiness : ITaiKhoanBusiness
     {
         private ITaiKhoanRepository _res;
         private string secret;
@@ -21,9 +19,9 @@ namespace BusinessLogicLayer
             secret = configuration["AppSettings:Secret"];
         }
 
-        public TaiKhoanModel Login(string taikhoan, string matkhau)
+        public TaiKhoanModel Login(string TenTaiKhoan, string MatKhau)
         {
-            var user = _res.Login(taikhoan, matkhau);
+            var user = _res.Login(TenTaiKhoan, MatKhau);
             if (user == null)
                 return null;
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -35,11 +33,28 @@ namespace BusinessLogicLayer
                     new Claim(ClaimTypes.Name, user.TenTaiKhoan.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.Aes128CbcHmacSha256)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             user.token = tokenHandler.WriteToken(token);
             return user;
         }
+        public bool Create(TaiKhoanModel model)
+        {
+            return _res.Create(model);
+        }
+        public bool Update(TaiKhoanModel model)
+        {
+            return _res.Update(model);
+        }
+        public bool Delete(string MakhachHang)
+        {
+            return _res.Delete(MakhachHang);
+        }
+        public TaiKhoanModel GetDatabyID(string id)
+        {
+            return _res.GetDatabyID(id);
+        }
     }
+
 }

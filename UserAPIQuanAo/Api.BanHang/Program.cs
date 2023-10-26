@@ -1,5 +1,6 @@
 using BusinessLogicLayer;
 using DataAccessLayer;
+using DataAccessLayer.Interfaces;
 using DataModel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -14,12 +15,12 @@ builder.Services.AddCors(options =>
 builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
 builder.Services.AddTransient<IKhachRepository, KhachRepository>();
 builder.Services.AddTransient<IKhachBusiness, KhachBusiness>();
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<IUserBusiness, UserBusiness>();
 builder.Services.AddTransient<ISanPhamRepository, SanPhamRepository>();
 builder.Services.AddTransient<ISanPhamBusiness, SanPhamBusiness>();
 builder.Services.AddTransient<IDanhMucRepository, DanhMucRepository>();
 builder.Services.AddTransient<IDanhMucBusiness, DanhMucBusiness>();
+builder.Services.AddTransient<ITaiKhoanRepository, TaiKhoanRepository>();
+builder.Services.AddTransient<ITaiKhoanBusiness, TaiKhoanBusiness>();
 
 
 // configure strongly typed settings objects
@@ -30,6 +31,7 @@ builder.Services.Configure<AppSettings>(appSettingsSection);
 // configure jwt authentication
 var appSettings = appSettingsSection.Get<AppSettings>();
 var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -44,9 +46,12 @@ builder.Services.AddAuthentication(x =>
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(key),
         ValidateIssuer = false,
-        ValidateAudience = false
+        ValidateAudience = false,
+
     };
 });
+
+
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -68,4 +73,4 @@ app.UseCors(x => x
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-app.Run(); 
+app.Run();

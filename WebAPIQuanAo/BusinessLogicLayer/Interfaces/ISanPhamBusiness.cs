@@ -10,9 +10,12 @@ namespace BusinessLogicLayer
     public partial interface ISanPhamBusiness
     {
         SanPhamModel GetDatabyID(string id);
+        List<SanPhamBanChayModel> Top3banchay();
         List<SanPhamModel> GetAll();
         bool Create (SanPhamModel model);    
         bool Update (SanPhamModel model);
         bool Delete (SanPhamModel model);
+        public List<SanPhamModel> Search(int pageIndex, int pageSize, out long total, string TenSanPham, string Gia);
     }
 }
+

@@ -9,13 +9,13 @@ namespace DataModel
     public class HoaDonModel
     {
         public int MaHoaDon { get; set; }
-        public string TenKH { get; set; }
-        public string Diachi { get; set; }
+        public string? TenKH { get; set; }
+        public string? Diachi { get; set; }
         public bool TrangThai { get; set; }
         
         public DateTime Ngaytao { get; set; }
 
-        public string Sđt { get; set; }
+        public string? Sđt { get; set; }
         public List<ChiTietHoaDonModel> list_json_chitiethoadon { get; set; }
     }
     public class ChiTietHoaDonModel

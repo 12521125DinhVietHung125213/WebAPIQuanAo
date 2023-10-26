@@ -10,7 +10,7 @@ namespace DataAccessLayer
     public partial interface ISanPhamRepository
     {
         SanPhamModel GetDatabyID(string id);
-
+        List<SanPhamBanChayModel> Top3banchay();
         SanPhamModel GetAll();
     }
 }

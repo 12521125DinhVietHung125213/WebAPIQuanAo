@@ -10,7 +10,7 @@ namespace DataModel
     {
         public int MaChiTietSanPham { get; set; }   
         public int MaSanPham { get; set; }  
-        public string MoTa { get; set; }    
-        public string ChiTiet { get; set; } 
+        public string? MoTa { get; set; }    
+        public string? ChiTiet { get; set; } 
     }
 }

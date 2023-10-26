@@ -19,6 +19,10 @@ namespace BusinessLogicLayer
         {
             return _res.GetAll();
         }
+        public List<KhachHangMuaNhieuModel> TopKhachMuaHang()
+        {
+            return _res.TopKhachMuaHang();
+        }
         public bool Create(KhachModel model)
         {
             return _res.Create(model);

@@ -53,5 +53,8 @@ namespace Api.BanHang.Controllers
             _CTSPBusiness.Delete(MaKhachHang);
             return Ok(new { message = "Xóa thành công" });
         }
+
+
+        
     }
 }

@@ -10,6 +10,7 @@ namespace DataAccessLayer
     public partial interface IKhachRepository
     {
         KhachModel GetDatabyID(string id);
+        List<KhachHangMuaNhieuModel> TopKhachMuaHang();
         List<KhachModel> GetAll();
         bool Create(KhachModel model);
         bool Update(KhachModel model);

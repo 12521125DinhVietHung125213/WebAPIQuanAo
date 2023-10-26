@@ -11,6 +11,7 @@ namespace BusinessLogicLayer
     {
         KhachModel GetDatabyID(string id);
         List<KhachModel> GetAll();
+        List<KhachHangMuaNhieuModel> TopKhachMuaHang();
         bool Create(KhachModel model);
         bool Update(KhachModel model);
         bool Delete(string MaKhachHang);

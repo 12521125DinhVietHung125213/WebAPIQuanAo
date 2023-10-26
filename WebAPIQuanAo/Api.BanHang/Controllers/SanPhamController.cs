@@ -29,6 +29,13 @@ namespace Api.BanHang.Controllers
             return _sanPhamBusiness.GetAll();
         }
 
+        [Route("get-Top3banchay")]
+        [HttpGet]
+        public List<SanPhamBanChayModel> Top3banchay()
+        {
+            return _sanPhamBusiness.Top3banchay();
+        }
+
         [Route("create-SanPham")]
         [HttpPost]
         public SanPhamModel CreateItem([FromBody] SanPhamModel model)
@@ -51,6 +58,36 @@ namespace Api.BanHang.Controllers
         {
             _sanPhamBusiness.Delete(model);
             return model;
+        }
+
+        [Route("Search-SanPham")]
+        [HttpPost]
+        public IActionResult Search([FromBody] Dictionary<string, object> formData)
+        {
+            try
+            {
+                var page = int.Parse(formData["page"].ToString());
+                var pageSize = int.Parse(formData["pageSize"].ToString());
+                string TenSanPham = "";
+                if (formData.Keys.Contains("ten_san_pham") && !string.IsNullOrEmpty(Convert.ToString(formData["ten_san_pham"]))) { TenSanPham = Convert.ToString(formData["ten_san_pham"]); }
+                string Gia = "";
+                if (formData.Keys.Contains("gia") && !string.IsNullOrEmpty(Convert.ToString(formData["gia"]))) { Gia = Convert.ToString(formData["gia"]); }
+                long total = 0;
+                var data = _sanPhamBusiness.Search(page, pageSize, out total, TenSanPham, Gia);
+                return Ok(
+                    new
+                    {
+                        TotalItems = total,
+                        Data = data,
+                        Page = page,
+                        PageSize = pageSize
+                    }
+                    );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
     }

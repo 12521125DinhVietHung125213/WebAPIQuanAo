@@ -132,5 +132,21 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
+        public List<KhachHangMuaNhieuModel> TopKhachMuaHang()
+        {
+            string msgErrror = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgErrror, "sp_TopKhachHang");
+                if (!string.IsNullOrEmpty(msgErrror))
+                    throw new Exception(msgErrror);
+                return dt.ConvertTo<KhachHangMuaNhieuModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

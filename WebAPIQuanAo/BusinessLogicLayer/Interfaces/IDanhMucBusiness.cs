@@ -14,5 +14,7 @@ namespace BusinessLogicLayer
         bool Create(DanhMucModel model);
         bool Update(DanhMucModel model);
         bool Delete(DanhMucModel model);
+        public List<DanhMucModel> Search(int pageIndex, int pageSize, out long total, string DanhMucCha, string TenDanhMuc);
+
     }
 }

@@ -10,15 +10,15 @@ namespace DataModel
     public class AuthenticateModel
     {
         [Required]
-        public string Username { get; set; }
+        public string? TenTaiKhoan { get; set; }
 
         [Required]
-        public string Password { get; set; }
+        public string? MatKhau { get; set; }
     }
 
     public class AppSettings
     {
-        public string Secret { get; set; }
+        public string? Secret { get; set; }
 
     }
 }

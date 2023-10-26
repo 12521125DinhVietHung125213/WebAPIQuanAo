@@ -30,6 +30,14 @@ namespace Api.BanHang.Controllers
         }
 
 
+        [Route("get-TopKhachMuaNhieu")]
+        [HttpGet]
+        public List<KhachHangMuaNhieuModel> TopKhachMuaHang()
+        {
+            return _khachBusiness.TopKhachMuaHang();
+        }
+
+
         [Route("create-khach")]
         [HttpPost]
         public KhachModel CreateItem([FromBody] KhachModel model)

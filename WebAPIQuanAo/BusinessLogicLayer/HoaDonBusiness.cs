@@ -24,6 +24,15 @@ namespace BusinessLogicLayer
         {
             return _res.Update(model);    
         }
-        
+
+        public bool Delete(string MaHoaDon)
+        {
+            return _res.Delete(MaHoaDon);
+        }
+        public List<ThongKeHoaDonModel> Search(int pageIndex, int pageSize, out long total, string ten_khach_hang, DateTime? fr_NgayTao, DateTime? to_NgayDuyet)
+        {
+            return _res.Search(pageIndex, pageSize, out total, ten_khach_hang, fr_NgayTao, to_NgayDuyet);
+        }
+
     }
 }

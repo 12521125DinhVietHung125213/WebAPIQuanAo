@@ -11,5 +11,6 @@ namespace BusinessLogicLayer
     {
         SanPhamModel GetDatabyID(string id);
         SanPhamModel GetAll();
+        List<SanPhamBanChayModel> Top3banchay();
     }
 }

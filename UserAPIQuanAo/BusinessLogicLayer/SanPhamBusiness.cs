@@ -21,5 +21,10 @@ namespace BusinessLogicLayer
             return _res.GetAll();
         }
 
+        public List<SanPhamBanChayModel> Top3banchay()
+        {
+            return _res.Top3banchay();
+        }
+
     }
 }
