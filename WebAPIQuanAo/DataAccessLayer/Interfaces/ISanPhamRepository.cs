@@ -17,6 +17,8 @@ namespace DataAccessLayer
         bool Update(SanPhamModel model);    
 
         bool Delete(SanPhamModel model);
-        public List<SanPhamModel> Search(int pageIndex, int pageSize, out long total, string ten_san_pham, string gia);
+        public List<SanPhamModel> SearchTheoGia(int pageIndex, int pageSize, out long total, int giaMax, int giaMin);
+
+        public List<SeachTheoTenModel> SearchTheoTen(int pageIndex, int pageSize, string TenSanPham);
     }
 }

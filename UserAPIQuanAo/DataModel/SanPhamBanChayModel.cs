@@ -12,5 +12,16 @@ namespace DataModel
         public string? TenSanPham { get; set; }
         public float Gia { get; set; }
         public string SoLuongMua { get; set; }
+
+
+    }
+
+    public class SeachTheoTenModel
+    {
+        public int MaSanPham { get; set; }
+        public string? TenSanPham { get; set; }
+        public float Gia { get; set; }
+        public int SoLuong { get; set; }
+
     }
 }

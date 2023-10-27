@@ -116,17 +116,18 @@ namespace DataAccessLayer
             }
         }
 
-        public List<SanPhamModel> Search(int pageIndex, int pageSize, out long total, string TenSanPham, string Gia)
+        public List<SanPhamModel> SearchTheoGia(int pageIndex, int pageSize, out long total, int giaMax, int giaMin)
         {
             string msgError = "";
             total = 0;
             try
             {
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_spham_search",
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "SearchSanPhamQuaGia",
                     "@page_index", pageIndex,
                     "@page_size", pageSize,
-                    "@ten_san_pham", TenSanPham,
-                    "@gia", Gia);
+                    "@MaxPrice", giaMax,
+                    "@MinPrice", giaMin
+                     );
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];
@@ -137,6 +138,29 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
+
+        public List<SeachTheoTenModel> SearchTheoTen(int pageIndex, int pageSize, string TenSanPham)
+        {
+            string msgError = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "SearchSanPhamTheoTen",
+                    "@page_index", pageIndex,
+                    "@page_size", pageSize,
+                    "@tenSanPham", TenSanPham
+                    );
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<SeachTheoTenModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         public List<SanPhamBanChayModel> Top3banchay()
         {

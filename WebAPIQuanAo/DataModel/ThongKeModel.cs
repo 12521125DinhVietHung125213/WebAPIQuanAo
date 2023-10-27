@@ -32,4 +32,12 @@ namespace DataModel
         public DateTime NgayTao { get; set; }
         public DateTime NgayDuyet { get; set; }
     }
+
+    public class SeachTheoTenModel {
+        public int MaSanPham { get; set; }
+        public string? TenSanPham { get; set; }
+        public float Gia { get; set; }
+        public int SoLuong { get; set; }
+
+    }
 }

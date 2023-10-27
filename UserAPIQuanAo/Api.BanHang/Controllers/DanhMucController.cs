@@ -1,5 +1,4 @@
 ﻿using BusinessLogicLayer;
-using BusinessLogicLayer.Interfaces;
 using DataModel;
 using Microsoft.AspNetCore.Mvc;
 

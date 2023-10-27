@@ -11,6 +11,7 @@ namespace DataAccessLayer
     {
         SanPhamModel GetDatabyID(string id);
         List<SanPhamBanChayModel> Top3banchay();
-        SanPhamModel GetAll();
+        List<SanPhamModel> GetAll();
+        public List<SeachTheoTenModel> SearchTheoTen(int pageIndex, int pageSize, string TenSanPham);
     }
 }

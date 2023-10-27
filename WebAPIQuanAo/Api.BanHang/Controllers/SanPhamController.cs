@@ -60,24 +60,49 @@ namespace Api.BanHang.Controllers
             return model;
         }
 
-        [Route("Search-SanPham")]
+        [Route("Search-Gia")]
         [HttpPost]
-        public IActionResult Search([FromBody] Dictionary<string, object> formData)
+        public IActionResult SearchTheoGia([FromBody] Dictionary<string, object> formData)
+        {
+            try
+            {
+                var page = int.Parse(formData["page"].ToString());
+                var pageSize = int.Parse(formData["pageSize"].ToString());
+                var max = int.Parse(formData["giamax"].ToString());
+                var min = int.Parse(formData["giamin"].ToString());
+
+                long total = 0;
+                var data = _sanPhamBusiness.SearchTheoGia(page, pageSize, out total, max, min);
+                return Ok(
+                    new
+                    {
+                        TotalItems = total,
+                        Data = data,
+                        Page = page,
+                        PageSize = pageSize
+                    }
+                    );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [Route("Search-TenSP")]
+        [HttpPost]
+        public IActionResult SearchTheoTen([FromBody] Dictionary<string, object> formData)
         {
             try
             {
                 var page = int.Parse(formData["page"].ToString());
                 var pageSize = int.Parse(formData["pageSize"].ToString());
                 string TenSanPham = "";
-                if (formData.Keys.Contains("ten_san_pham") && !string.IsNullOrEmpty(Convert.ToString(formData["ten_san_pham"]))) { TenSanPham = Convert.ToString(formData["ten_san_pham"]); }
-                string Gia = "";
-                if (formData.Keys.Contains("gia") && !string.IsNullOrEmpty(Convert.ToString(formData["gia"]))) { Gia = Convert.ToString(formData["gia"]); }
-                long total = 0;
-                var data = _sanPhamBusiness.Search(page, pageSize, out total, TenSanPham, Gia);
+                if (formData.Keys.Contains("tenSanPham") && !string.IsNullOrEmpty(Convert.ToString(formData["tenSanPham"]))) { TenSanPham = Convert.ToString(formData["tenSanPham"]); }
+                var data = _sanPhamBusiness.SearchTheoTen(page, pageSize, TenSanPham);
                 return Ok(
                     new
                     {
-                        TotalItems = total,
                         Data = data,
                         Page = page,
                         PageSize = pageSize

@@ -1,6 +1,5 @@
 using BusinessLogicLayer;
 using DataAccessLayer;
-using DataAccessLayer.Interfaces;
 using DataModel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

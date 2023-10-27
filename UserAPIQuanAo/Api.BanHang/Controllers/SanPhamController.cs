@@ -24,7 +24,7 @@ namespace Api.BanHang.Controllers
 
         [Route("get-all")]
         [HttpGet]
-        public SanPhamModel GetAll()
+        public List<SanPhamModel> GetAll()
         {
             return _sanPhamBusiness.GetAll();
         }
@@ -34,6 +34,32 @@ namespace Api.BanHang.Controllers
         public List<SanPhamBanChayModel> Top3banchay()
         {
             return _sanPhamBusiness.Top3banchay();
+        }
+
+        [Route("Search-TenSP")]
+        [HttpPost]
+        public IActionResult SearchTheoTen([FromBody] Dictionary<string, object> formData)
+        {
+            try
+            {
+                var page = int.Parse(formData["page"].ToString());
+                var pageSize = int.Parse(formData["pageSize"].ToString());
+                string TenSanPham = "";
+                if (formData.Keys.Contains("tenSanPham") && !string.IsNullOrEmpty(Convert.ToString(formData["tenSanPham"]))) { TenSanPham = Convert.ToString(formData["tenSanPham"]); }
+                var data = _sanPhamBusiness.SearchTheoTen(page, pageSize, TenSanPham);
+                return Ok(
+                    new
+                    {
+                        Data = data,
+                        Page = page,
+                        PageSize = pageSize
+                    }
+                    );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
 

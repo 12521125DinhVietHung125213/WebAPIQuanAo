@@ -15,7 +15,9 @@ namespace BusinessLogicLayer
         bool Create (SanPhamModel model);    
         bool Update (SanPhamModel model);
         bool Delete (SanPhamModel model);
-        public List<SanPhamModel> Search(int pageIndex, int pageSize, out long total, string TenSanPham, string Gia);
+        public List<SanPhamModel> SearchTheoGia(int pageIndex, int pageSize, out long total, int giaMax, int giaMin);
+
+        public List<SeachTheoTenModel> SearchTheoTen(int pageIndex, int pageSize, string TenSanPham);
     }
 }
 

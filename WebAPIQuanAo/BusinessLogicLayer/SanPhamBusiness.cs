@@ -37,9 +37,15 @@ namespace BusinessLogicLayer
         { 
             return _res.Delete(model); 
         }
-        public List<SanPhamModel> Search(int pageIndex, int pageSize, out long total, string ten_san_pham, string gia)
+        public List<SanPhamModel> SearchTheoGia(int pageIndex, int pageSize, out long total, int giaMax, int giaMin)
         {
-            return _res.Search(pageIndex, pageSize, out total, ten_san_pham, gia);
+            return _res.SearchTheoGia(pageIndex, pageSize, out total, giaMax, giaMin);
+
+        }
+
+        public List<SeachTheoTenModel> SearchTheoTen(int pageIndex, int pageSize, string TenSanPham )
+        {
+            return _res.SearchTheoTen(pageIndex, pageSize, TenSanPham);
         }
 
     }

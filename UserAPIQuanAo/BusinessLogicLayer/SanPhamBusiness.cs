@@ -16,7 +16,7 @@ namespace BusinessLogicLayer
             return _res.GetDatabyID(id);
         }
 
-        public SanPhamModel GetAll()
+        public List<SanPhamModel> GetAll()
         {
             return _res.GetAll();
         }
@@ -24,6 +24,11 @@ namespace BusinessLogicLayer
         public List<SanPhamBanChayModel> Top3banchay()
         {
             return _res.Top3banchay();
+        }
+
+        public List<SeachTheoTenModel> SearchTheoTen(int pageIndex, int pageSize, string TenSanPham)
+        {
+            return _res.SearchTheoTen(pageIndex, pageSize, TenSanPham);
         }
 
     }

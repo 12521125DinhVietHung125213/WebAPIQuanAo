@@ -10,7 +10,8 @@ namespace BusinessLogicLayer
     public partial interface ISanPhamBusiness
     {
         SanPhamModel GetDatabyID(string id);
-        SanPhamModel GetAll();
+        List<SanPhamModel> GetAll();
         List<SanPhamBanChayModel> Top3banchay();
+        public List<SeachTheoTenModel> SearchTheoTen(int pageIndex, int pageSize, string TenSanPham);
     }
 }

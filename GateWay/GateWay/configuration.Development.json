@@ -1,23 +1,20 @@
 ﻿{
   "Routes": [
+    //{
+    //  "DownstreamPathTemplate": "/api/Khach/{everything}",
+    //  "DownstreamScheme": "https",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 44306
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api-admin/khachhang/{everything}",
+    //  "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+
+    //},
     {
-      "DownstreamPathTemplate": "/api/Khach/{everything}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44306
-        }
-      ],
-      "UpstreamPathTemplate": "/api-admin/khachhang/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "Bearer",
-      //  "AllowedScopes": []
-      //}
-    },
-    {
-      "DownstreamPathTemplate": "/api/Category/{everything}",
+      "DownstreamPathTemplate": "/api/DanhMuc/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -25,52 +22,26 @@
           "Port": 44305
         }
       ],
-      "UpstreamPathTemplate": "/api-user/the-loai/{everything}",
+      "UpstreamPathTemplate": "/api-user/DanhMuc/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/SanPham/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44306
+        }
+      ],
+      "UpstreamPathTemplate": "/api-admin/SanPham/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+
     }
 
 
-    
-    //{
-    //  "DownstreamPathTemplate": "/api/catalog/{id}",
-    //  "DownstreamScheme": "http",
-    //  "DownstreamHostAndPorts": [
-    //    {
-    //      "Host": "localhost",
-    //      "Port": 44326
-    //    }
-    //  ],
-    //  "UpstreamPathTemplate": "/catalog/{id}",
-    //  "UpstreamHttpMethod": [ "GET", "DELETE" ],
-    //  "AuthenticationOptions": {
-    //    "AuthenticationProviderKey": "Bearer",
-    //    "AllowedScopes": []
-    //  }
-    //},
-    //{
-    //  "DownstreamPathTemplate": "/api/identity/login",
-    //  "DownstreamScheme": "http",
-    //  "DownstreamHostAndPorts": [
-    //    {
-    //      "Host": "localhost",
-    //      "Port": 44397
-    //    }
-    //  ],
-    //  "UpstreamPathTemplate": "/identity/login",
-    //  "UpstreamHttpMethod": [ "POST" ]
-    //},
-    //{
-    //  "DownstreamPathTemplate": "/api/identity/validate",
-    //  "DownstreamScheme": "http",
-    //  "DownstreamHostAndPorts": [
-    //    {
-    //      "Host": "localhost",
-    //      "Port": 44397
-    //    }
-    //  ],
-    //  "UpstreamPathTemplate": "/identity/validate",
-    //  "UpstreamHttpMethod": [ "GET" ]
-    //}
+
   ],
   "GlobalConfiguration": {
     "BaseUrl": "https://localhost:5000"
