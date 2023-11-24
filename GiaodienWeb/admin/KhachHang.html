@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/fontawesome-free-6.0.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/SanPhamAD.css">
+    <script src="../Js/angular.min.js"></script>
+    <script src="../Js/global.js"></script>
+    <script src="../Js/Khach.js"></script>
+    <title>Document</title>
+</head>
+<body  ng-app="AppQuanTri" ng-controller="KhachCtrl">
+    <div class="main" >
+        <header class="header">
+            <div class="grid">
+                <div class="grid__row header-grid">
+                    <div class="welcome">
+                        <p class="welcome-text">Xin chào<i class="fa-solid fa-sort-down"></i></p>
+                        <div class="info">
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-user "></i>Tài khoản
+                                    </a>
+                                </li>
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-right-from-bracket"></i>Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="content">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__col1">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-dumpster icons-nav"></i>Tổng quan
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/LoaiSP.html" class="nav-link">
+                                    <i class="fa-solid fa-boxes-stacked icons-nav"></i>Loại sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/SanPham.html" class="nav-link">
+                                    <i class="fa-solid fa-barcode icons-nav"></i>Sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/NhaCungCap.html" class="nav-link">
+                                    <i class="fa-solid fa-truck icons-nav"></i>Nhà cung cấp
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/KhachHang.html" class="nav-link">
+                                    <i class="fa-solid fa-users icons-nav"></i>Khách hàng
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/HoaDonNhap.html" class="nav-link">
+                                    <i class="fa-solid fa-file-import icons-nav"></i>Tài Khoản
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/HoaDonBan.html" class="nav-link">
+                                    <i class="fa-solid fa-cart-shopping icons-nav"></i>Hóa đơn bán
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-newspaper icons-nav"></i>Tin tức
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-gear icons-nav"></i>Thiết lập
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__col11">
+                        <div class="grid__row">
+                            <div class="grid__col11-col4">
+                                <div class="col4-infoadmin">
+                                    <div class="col4-infoadmin-title">
+                                        <h3><i class="fa-solid fa-users"></i>Nhập thông tin khách hàng</h3>
+                                    </div>
+                                    <form action="">
+                                        <div class="input">
+                                            <label for="">Mã khách hàng:</label><br>
+                                            <input type="text" placeholder="Nhập mã khách hàng..." id="makh">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Tên khách hàng:</label><br>
+                                            <input type="text" placeholder="Nhập tên khách hàng..." id="tenkh">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Giới tính:</label><br>
+                                            <input type="text" placeholder="Nhập giới tính khách hàng..." id="gioiTinh">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Số điện thoại:</label><br>
+                                            <input type="text" placeholder="Nhập số điện thoại khách hàng..." id="sdt">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Email:</label><br>
+                                            <input type="email" placeholder="Nhập email khách hàng..." id="email">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Địa chỉ:</label><br>
+                                            <input type="text" placeholder="Nhập địa chỉ khách hàng..." id="diachi">
+                                        </div>
+                                        <!-- <div class="input">
+                                            <label for="">Mật khẩu:</label><br>
+                                            <input type="password" placeholder="Nhập mật khẩu khách hàng...">
+                                        </div> -->
+                                    </form>
+                                    <hr style="margin-top: 20px; margin-bottom: 20px; background: #4B7BE5;">
+                                    <div class="btn-product">
+                                        <button class="add-product" onclick="ThemKH()">Thêm khách hàng</button>
+                                        <button class="nhap-product" onclick="Nhapmoi()">Nhập mới</button>
+                                        <button class="update-product" onclick="CapNhap()">Cập nhập thông tin</button>
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid__col11-col8" >
+                                <div class="col8-title">
+                                    <h3><i class="fa-solid fa-users"></i>Danh sách khách hàng</h3>
+                                </div>
+                                <div class="col8-info">
+                                    <div class="col8-input">
+                                        <input type="text" placeholder="Nhập mã , tên, số điện thoại khách hàng" style="width: 70%;padding: 0 10px; height: 40px; margin-top: 10px;">
+                                        <button class="btn-search"><i class="fa-solid fa-magnifying-glass" style="margin-right: 5px;"></i>Tìm kiếm</button>
+                                    </div>
+                                    <!-- <div class="col8-info-list">
+                                        
+                                        <p style="text-align: center;">Mã khách hàng</p>
+                                        <p style="text-align: center;">Tên khách hàng</p>
+                                        <p style="text-align: center;">Số điện thoại</p>
+                                        <p style="text-align: center;">Email</p>
+                                        <p style="text-align: center;">Địa chỉ </p>
+                                        <p style="text-align: center;">Thao tác</p>
+                                        
+                                    </div> -->
+                                    <div class="table">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Mã khách hàng</th>
+                                                    <th>Tên khách hàng</th>
+                                                    <th>Giới tính</th>
+                                                    <th>Giới tính</th>
+                                                    <th>Địa chỉ</th>
+                                                    <th>Email</th>
+                                                    
+                                                </tr>
+
+                                                <tr ng-repeat ="x in listMenu">
+                                                    <th>{{x.maKhachHang}}</th>
+                                                    <th>{{x.tenKhachHang}}</th>
+                                                    <th>{{x.sdt}}</th>
+                                                    <th>{{x.gioiTinh === "True" ? "Nam": "Nữ"}}</th>
+                                                    <th>{{x.diaChi}}</th>
+                                                    <th>{{x.email}}</th>
+                                                </tr>
+                                            </thead>
+                                           
+                                        </table>
+                                    </div>
+                                    <div class="col8-info-thongke">
+                                        <p>Số lượng khách hàng: <span id="sl"></span></p>
+                                    </div>
+                                    <button class="delete" onclick="XoaChon()">Xóa chọn</button>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+</body>
+</html>

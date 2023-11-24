@@ -1,0 +1,186 @@
+*{
+    box-sizing: border-box;
+    margin: 0px auto;
+    padding: 0;
+}
+html{
+    box-sizing: border-box;
+
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root{
+    --white-color: #fff;
+    --text-color : #333;
+}
+.link-out{
+    margin-top: 10px;
+}
+.link-out-link{
+    padding: 0 5px;
+    text-decoration: none;
+    font-size: 15px;
+}
+.link-out-spn{
+    padding: 0 5px;
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(105, 102, 102);
+}
+.link-out-icon{
+    padding: 0 2px;
+    font-size: 14px;
+}
+.chapter{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.accessory__header{
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+.accessory-name{
+    color: #333;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.accessory-all{
+    display: flex;
+    justify-content: space-between;
+}
+.accessory-all-apple-icon{
+    width: 130px;
+    height: 130px;
+    border: 2px solid darkgray;
+    margin: 0 20px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.accessory-all-apple-icon:hover .apple-icons{
+    animation: scales 0.7s linear;
+}
+@keyframes scales{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.7);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.apple-icons{
+    font-size: 60px;
+    font-weight: 500;
+    
+}
+.accessory-all-apple-h3{
+    font-size: 14px;
+    font-weight: 500;
+}
+.accessory-all-apple-name{
+    margin-top: 10px;
+}
+.accessory-all-apple-h3{
+    text-align: center;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+.accessory-all-apple:hover .accessory-all-apple-icon{
+    border-color: red;
+    cursor: pointer;
+}
+
+.home__product{
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.home_product-img{
+    width: 100%;
+    padding: 25px;
+}
+.home__product-info{
+    /* margin-top: 10px; */
+}
+.home__product-info-name{
+    margin: 10px 0;
+    padding: 0 20px;
+}
+.home__product-info-h4{
+    font-weight: 500;
+    font-size: 16px;
+}
+.home__product-info-price{
+    display: flex;
+    justify-content: space-between;
+}
+.home__product-info-price-new{
+    color: red;
+}
+.home__product-info-price-old{
+    text-decoration: line-through;
+    color: rgb(167, 158, 158);
+}
+.home__product-info-buy-spn{
+    background-color: red;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    color: var(--white-color);
+    text-align: center;
+    display: block;
+    width: 82%;
+    height: 25px;
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
+    border-radius: 3px;
+}
+.home__product-info-buy-spn:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+.home__product-info-h4:hover{
+    color: #0168fa;
+    cursor: pointer;
+}
+
+.home__product:hover{
+    transform: scale(1.02);
+    transition: 0.3s linear;
+    cursor: pointer;
+}
+.price-1{
+    margin-left: 20px;
+}
+.more{
+    display: flex;
+    margin: 20px 0;
+}
+.more-btn{
+    border: none;
+    outline: none;
+    width: 130px;
+    height: 40px;
+    color: #8392a5;
+    background-color: #e9ecef;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.more-btn:hover{
+    background-color: #ccc;
+}

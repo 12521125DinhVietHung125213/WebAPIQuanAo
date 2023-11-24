@@ -61,6 +61,34 @@ namespace Api.BanHang.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        [Route("Search-Gia")]
+        [HttpPost]
+        public IActionResult SearchTheoGia([FromBody] Dictionary<string, object> formData)
+        {
+            try
+            {
+                var page = int.Parse(formData["page"].ToString());
+                var pageSize = int.Parse(formData["pageSize"].ToString());
+                var max = int.Parse(formData["giamax"].ToString());
+                var min = int.Parse(formData["giamin"].ToString());
+
+                long total = 0;
+                var data = _sanPhamBusiness.SearchTheoGia(page, pageSize, out total, max, min);
+                return Ok(
+                    new
+                    {
+                        TotalItems = total,
+                        Data = data,
+                        Page = page,
+                        PageSize = pageSize
+                    }
+                    );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
 
 

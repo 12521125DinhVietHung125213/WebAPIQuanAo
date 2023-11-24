@@ -30,6 +30,11 @@ namespace BusinessLogicLayer
         {
             return _res.SearchTheoTen(pageIndex, pageSize, TenSanPham);
         }
+        public List<SanPhamModel> SearchTheoGia(int pageIndex, int pageSize, out long total, int giaMax, int giaMin)
+        {
+            return _res.SearchTheoGia(pageIndex, pageSize, out total, giaMax, giaMin);
+
+        }
 
     }
 }

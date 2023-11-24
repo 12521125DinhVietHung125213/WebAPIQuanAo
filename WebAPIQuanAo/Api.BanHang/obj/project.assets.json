@@ -1348,9 +1348,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Bài Tập\\Kì 1 - Năm 3\\BTL HDV\\WebAPIQuanAo\\Api.BanHang\\Api.BanHang.csproj",
-      "projectName": "Api.BanHang",
-      "projectPath": "D:\\Bài Tập\\Kì 1 - Năm 3\\BTL HDV\\WebAPIQuanAo\\Api.BanHang\\Api.BanHang.csproj",
+      "projectUniqueName": "D:\\Bài Tập\\Kì 1 - Năm 3\\BTL HDV\\WebAPIQuanAo\\Api.BanHang\\ApiAdmin.BanHang.csproj",
+      "projectName": "ApiAdmin.BanHang",
+      "projectPath": "D:\\Bài Tập\\Kì 1 - Năm 3\\BTL HDV\\WebAPIQuanAo\\Api.BanHang\\ApiAdmin.BanHang.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
       "outputPath": "D:\\Bài Tập\\Kì 1 - Năm 3\\BTL HDV\\WebAPIQuanAo\\Api.BanHang\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,0 +1,152 @@
+html{
+    background-image: url(http://cdn.magdeleine.co/wp-content/uploads/2014/05/3jPYgeVCTWCMqjtb7Dqi_IMG_8251-1400x933.jpg);
+    background-repeat: no-repeat;
+    object-fit: contain;
+    background-size: cover;
+    overflow: hidden;
+}
+body{
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+img{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
+.login-btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    background: rgba(3,3,3,.8);
+    border-radius: 50%;
+    overflow: hidden;
+    opacity: 0.4;
+    padding: 30px;
+    /* display: none; */
+}
+.login-btn:hover{
+    background-color: rgba(3,3,3,0.4);
+    cursor: pointer;
+}
+.form{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(3,3,3,0.25);
+    width: 300px;
+    height: 300px;
+    box-shadow: 1px 1px 50px #000;
+    border-radius: 5px;
+    display: none;
+    animation: anhien 0.3s linear;
+}
+.form-all{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.title{
+    text-align: center;
+    font-size: 34px;
+    color: #fff;
+    font-weight: 400;
+    margin: 20px 0;
+}
+.form-user{
+    margin-bottom: 20px;
+
+}
+.form-user input{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 35px;
+    background-color: rgba(3,3,3,0.1);
+
+}
+.form-password{
+    margin-bottom: 20px;
+}
+.form-password input{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 100%;
+    background-color: rgba(3,3,3,0.1);
+    height: 35px;
+}
+::placeholder{
+    padding-left: 5px;
+    color: #fff;
+    opacity: 0.7;
+}
+input:focus{
+    color: #fff;
+    box-shadow: 1px 1px 5px #333;
+    background: rgba(3,3,3,.18);
+}
+.form-btn{
+    margin-top: 10px;
+}
+.inputsubmit{
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    /* background: rgba(107,255,3,0.5); */
+    background-image: linear-gradient(to right, #0000FF, #6495ED);
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+
+}
+.form-miss{
+    float: right;
+    margin-top: 10px;
+}
+a{
+    font-size: 14px;
+    color: #ccc;
+    opacity: 0.3;
+    text-decoration: none;
+}
+.btn-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 24px;
+    padding-top: 5px;
+    padding-right: 10px;
+    color: #fff;
+    
+}
+.btn:hover,
+.btn-close:hover{
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+@keyframes anhien{
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/SanPhamAD.css">
+    <link rel="stylesheet" href="../assets/fontawesome-free-6.0.0-web/css/all.min.css">
+    <script src="../Js/angular.min.js"></script>
+    <script src="../Js/global.js"></script>
+    <script src="../Js/home.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="AppBanHang" ng-controller="HomeCtrl">
+    <div class="main">
+        <header class="header">
+            <div class="grid">
+                <div class="grid__row header-grid">
+                    <div class="welcome">
+                        <p class="welcome-text">Xin chào<i class="fa-solid fa-sort-down"></i></p>
+                        <div class="info">
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-user "></i>Tài khoản
+                                    </a>
+                                </li>
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-right-from-bracket"></i>Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="content">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__col1">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-dumpster icons-nav"></i>Tổng quan
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/LoaiSP.html" class="nav-link">
+                                    <i class="fa-solid fa-boxes-stacked icons-nav"></i>Loại sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/SanPham.html" class="nav-link">
+                                    <i class="fa-solid fa-barcode icons-nav"></i>Sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/NhaCungCap.html" class="nav-link">
+                                    <i class="fa-solid fa-truck icons-nav"></i>Nhà cung cấp
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/KhachHang.html" class="nav-link">
+                                    <i class="fa-solid fa-users icons-nav"></i>Khách hàng
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/HoaDonNhap.html" class="nav-link">
+                                    <i class="fa-solid fa-file-import icons-nav"></i>Tài Khoản
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/HoaDonBan.html" class="nav-link">
+                                    <i class="fa-solid fa-cart-shopping icons-nav"></i>Hóa đơn bán
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-newspaper icons-nav"></i>Tin tức
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-gear icons-nav"></i>Thiết lập
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__col11">
+                        <div class="grid__row">
+                            <div class="grid__col11-col4">
+                                <div class="col4-infoadmin">
+                                    <div class="col4-infoadmin-title">
+                                        <h3><i class="fa-solid fa-barcode icons-nav"></i>Nhập thông tin sản phẩm</h3>
+                                    </div>
+                                    <form action="" ng-submit="submitForm()">
+                                        <div class="input">
+                                            <label for="">Loại sản phẩm:</label><br>
+                                            <input ng-model="sp.maDanhMuc"  type="text" id="loaisp"  placeholder="Nhập loai sản phẩm...">
+                                        </div>
+                                        <div  class="input">
+                                            <label for="">Mã sản phẩm:</label><br>
+                                            <input ng-model="sp.maSanPham" type="text" id="masp"  placeholder="Nhập mã sản phẩm...">
+                                        </div>
+                                        <div  class="input">
+                                            <label for="">Tên sản phẩm:</label><br>
+                                            <input ng-model="sp.tenSanPham" type="text" id="tensp" placeholder="Nhập tên sản phẩm...">
+                                        </div>
+                                        <!-- <div class="input">
+                                            <label for="">Hình ảnh:</label><br>
+                                            <input type="file" id="img" placeholder="Nhập tên sản phẩm..." style="border: 1px solid;">
+                                        </div> -->
+                                        <div class="input">
+                                            <label for="">Số lượng:</label><br>
+                                            <input ng-model="sp.soLuong" type="number" id="soluong" placeholder="Nhập số lượng sản phẩm...">
+                                        </div>
+                                        <div  class="input">
+                                            <label for="">Giá bán:</label><br>
+                                            <input ng-model="sp.gia" type="text" id="gia" placeholder="Nhập giá sản phẩm...">
+                                        </div>
+                                        <div  class="input">
+                                            <label for="">Kích cỡ:</label><br>
+                                            <input ng-model="sp.size" type="text" id="size" placeholder="Nhập kích cỡ...">
+                                        </div>
+                                        <div  class="input">
+                                            <label for="">Màu sắc:</label><br>
+                                            <input ng-model="sp.mauSac" type="text" id="color" placeholder="Nhập màu sắc...">
+                                        </div>
+                                        <hr style="margin-top: 20px; margin-bottom: 20px; background: #4B7BE5;">
+                                        <div class="btn-product">
+                                            <button type="submit" class="add-product" ng-click="" >Thêm loại sản phẩm</button>
+                                            <button class="nhap-product" >Nhập mới</button>
+                                            <button type="submit" class="update-product" >Cập nhập thông tin</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="grid__col11-col8">
+                                <div class="col8-title">
+                                    <h3><i class="fa-solid fa-barcode icons-nav"></i>Danh sách sản phẩm</h3>
+                                </div>
+                                <div class="col8-info">
+                                    <div class="col8-input">
+                                        <input type="text" placeholder="Nhập mã sản phẩm hoặc tên">
+                                        <select name="" id="">
+                                            <option value="choose">--Chọn loại sản phẩm--</option>
+                                            <optgroup label="Điện thoại"></optgroup>
+                                            <option value="Điện thoại">--Chọn loại sản phẩm--</option>
+                                            <option value="Điện thoại">Iphone 7 plus</option>
+                                            <option value="Điện thoại">Oppo A37</option>
+                                            <option value="Điện thoại">Xiaomi Redmi Note 11</option>
+                                            <option value="Điện thoại">IP XS Max</option>
+                                            <option value="Điện thoại">SamSung Galaxy S22</option>
+                                            <optgroup label="Tai nghe"></optgroup>
+                                            <option value="Tai nghe">Bluetooth AirPods 3 Apple MME73</option>
+                                            <option value="Tai nghe">Bluetooth True Wireless OPPO ENCO </option>
+                                            <option value="Tai nghe">Bluetooth Chụp tai Kannen K6</option>
+                                            <option value="Tai nghe">Mozard Flex4</option>
+                                            <option value="Tai nghe">Bluetooth 1 Bên Mozard</option>
+                                            <optgroup label="Sạc"></optgroup>
+                                            <option value="Sạc">AVA + LJ JP199</option>
+                                            <option value="Sạc">Xmobile Gram 6S </option>
+                                            <option value="Sạc">OPPO PBT02</option>
+                                        </select>
+                                        <select name="" id="" class="seclectncc">
+                                            <option value="Chọn nhà cung cấp">--Chọn kích cỡ--</option>
+                                            <option value="Appel">Apple</option>
+                                            <option value="SamSung">SamSung</option>
+                                            <option value="OPPO">OPPO</option>
+                                            <option value="Xiaomi">Xiaomi</option>
+                                        </select>
+                                        <button class="btn-search"><i class="fa-solid fa-magnifying-glass" style="margin-right: 5px;"></i>Tìm kiếm</button>
+                                    </div>
+                                    <div class="table">
+                                        <!-- <input type="checkbox"> -->
+                                        <!-- <p>Mã sản phẩm</p>
+                                        <p>Tên sản phẩm</p>
+                                        <p>Hình ảnh</p>
+                                        <p>Số lượng</p>
+                                        <p>Giá bán</p>
+                                        <p>Loại sản phẩm</p>
+                                        <p>Nhà cung cấp</p>
+                                        <p>Thao tác</p> -->
+                                        <table id="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Mã Sản Phẩm</th>
+                                                    <th>Tên sản phẩm</th>
+                                                    <th>Số lượng</th>
+                                                    <th>Giá bán</th>
+                                                    <th>Loại sản phẩm</th>
+                                                    <th>Kích cỡ</th>
+                                                    <th>Màu sắc</th>
+                                                </tr>
+                                                <tr ng-repeat="x in listMenu" onclick="editClick()">
+                                                    <th>{{x.maSanPham}}</th>
+                                                    <th>{{x.tenSanPham}}</th>
+                                                    <th>{{x.soLuong}}</th>
+                                                    <th>{{x.gia}}</th>
+                                                    <th>{{x.maDanhMuc}}</th>
+                                                    <th>{{x.size}}</th>
+                                                    <th>{{x.mauSac}}</th>
+                                                    <th><button onclick="editClick()"> edit</button></th>
+                                                </tr>
+                                            </thead>
+                                            
+                                        </table>
+                                    </div>
+                                    <div class="col8-info-thongke">
+                                        <p>Số lượng sản phẩm: <span id="soluong">0</span></p>
+                                    </div>
+                                    <button class="delete" onclick="XoaChon()">Xóa chọn</button>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+
+    <script>
+        const editClick = () => {
+
+        var table = document.getElementById('table');    
+        for(var i = 1; i < table.rows.length; i++)
+        {
+                table.rows[i].onclick = function()
+                {
+                            //rIndex = this.rowIndex;
+                            document.getElementById("loaisp").value = this.cells[4].innerHTML;
+                            document.getElementById("masp").value = this.cells[0].innerHTML;
+                            document.getElementById("tensp").value = this.cells[1].innerHTML;
+                            document.getElementById("soluong").value = this.cells[2].innerHTML;
+                            document.getElementById("gia").value = this.cells[3].innerHTML;
+                            document.getElementById("size").value = this.cells[5].innerHTML;
+                            document.getElementById("color").value = this.cells[6].innerHTML;
+                };
+        }
+    }
+    
+    </script>
+
+    
+
+    <script>
+        var list = JSON.parse(localStorage.getItem('sanpham')) || [];
+        function addsp(){
+            var loaisp = document.getElementById('loaisp').value;
+            var ncc = document.getElementById('ncc').value;
+            var masp = document.getElementById('masp').value;
+            var tensp = document.getElementById('tensp').value;
+            var soluong = document.getElementById('soluong').value;
+            var giaban = document.getElementById('gia').value;
+            var number = /^[0-9]+$/;
+
+            if(loaisp == 'choose'){
+                alert('Vui lòng chọn loại sản phẩm !')
+                return false
+            }
+            else if (ncc == 'choose'){
+                alert('Vui lòng chọn nhà cung cấp!')
+                return false
+            }
+            else if(masp == null || masp == ""){
+                var d = new Date();
+                masanpham = Number(d);
+            }
+            else if(!masp.match(number) || masp.lenght > 5){
+                alert('Mã sản phẩm phải là kiểu số và độ dài k được vượt quá 5 kí tự!')
+                return false
+            }
+            else if(tensp == ""){
+                alert('Vui lòng nhập tên sản phẩm!')
+                return false
+            }
+            else if(soluong < 0){
+                alert('Số lượng phải lớn hơn 0! Vui lòng nhập lại')
+                return false
+            }
+            else if (giaban < 0 ){
+                alert('Giá bán phải lớn hơn 0! Vui lòng nhập lại')
+                return false
+            }
+            else{
+                for (var x of list){
+                    if(x.masp == masp){
+                        alert('Mã sản phẩm đã tồn tại')
+                        return false
+                    }
+                }
+            }
+
+            if(list == null) list = [];
+            var loaiproduct = {
+                'tensp': tensp,
+                'soluong': soluong,
+                'giaban': giaban,
+                'loaisp': loaisp,
+                'ncc': ncc,
+                'masp': masp
+            };
+            list.push(loaiproduct)
+            localStorage.setItem('sanpham', JSON.stringify(list));
+            alert('Thêm thành công')
+            location.reload();
+        }
+
+        function hienthi(){
+            var sl = 0;
+            var str = "";
+            // list.sort();
+            for(var x of list){
+                console.log(x.tensp)
+                // console.log(x)
+                // debugger
+                sl ++;
+                str += `<tr>
+                            <td>`+x.tensp+`</td>
+                            <td>`+x.soluong+` </td>
+                            <td>`+x.giaban+`</td>
+                            <td>`+x.loaisp+`</td>
+                            <td>`+x.ncc+`</td>
+                            <td>
+                                <i class="fa-solid fa-pen-to-square" title= "Sửa" onclick="SuaSanPham(`+x.masp+`)"></i>
+                                <i class="fas fa-trash-alt" title="Xóa" onclick="xoasp(`+x.masp+`)"></i>
+                            </td>
+                        </tr>
+                `;
+            }
+            
+            document.getElementById('listproduct').innerHTML = str;
+            document.getElementById('soluong').innerHTML = sl;
+        }
+        hienthi()
+
+        function xoasp(masp){
+            if(confirm("Bạn muốn xóa!")){
+                var index = list.findIndex(x => x.masp == masp)
+                if (index >= 0){
+                    list.splice(index, 1)
+                }
+                hienthi()
+                localStorage.setItem('sanpham', JSON.stringify(list))
+                location.reload();
+            }
+        }
+
+        function Nhapmoi(){
+            var loaisp = document.getElementById('loaisp').value = "choose";
+            var ncc = document.getElementById('ncc').value ="choose"
+            var masp = document.getElementById('masp').value = ""
+            var tensp = document.getElementById('tensp').value = ""
+            var soluong = document.getElementById('soluong').value = ""
+            var giaban = document.getElementById('gia').value =""
+        }
+
+        function SuaSanPham(masp){
+            for(x of list){
+                if(x.masp == masp){
+                    var loaisp = document.getElementById('loaisp').value = x.loaisp
+                    var ncc = document.getElementById('ncc').value = x.ncc
+                    var masp = document.getElementById('masp').value = x.masp;
+                    var tensp = document.getElementById('tensp').value = x.tensp
+                    var soluong = document.getElementById('soluong').value = x.soluong;
+                    var giaban = document.getElementById('gia').value = x.giaban;
+                }
+            }
+        }
+
+        function CapNhap(){
+            var loaisp = document.getElementById('loaisp').value 
+            var ncc = document.getElementById('ncc').value 
+            var masp = document.getElementById('masp').value 
+            var tensp = document.getElementById('tensp').value 
+            var soluong = document.getElementById('soluong').value 
+            var giaban = document.getElementById('gia').value 
+            var ok = true;
+
+            if(tensp == null || tensp == ""){
+                alert("Tên sản phẩm không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(loaisp == 'choose'){
+                alert("Vui lòng chọn loại sản phẩm")
+                return false;
+            }
+            else if(ncc == 'choose'){
+                alert("Vui lòng chọn nhà cung cấp")
+                return false;
+            }
+            else if(soluong< 0){
+                alert("Số lượng phải lớn hơn 0! Vui lòng nhập lại")
+                return false;
+            }
+            else if(giaban< 0){
+                alert("Gía bán phải lớn hơn 0! Vui lòng nhập lại");
+            }
+
+            for(x of list){
+                if(x.masp == masp){
+                    x.loaisp = loaisp;
+                    x.ncc = ncc;
+                    x.tensp = tensp;
+                    x.soluong = soluong;
+                    x.giaban = giaban;
+                    ok = false;
+                    break;
+                }
+            }
+            if(ok == false){
+                alert("Cập nhập thông tin thành công")
+                localStorage.setItem("sanpham", JSON.stringify(list))
+                location.reload();
+            }
+            else{
+                alert("Cập nhập thông tin thất bại")
+            }
+        }
+
+        function XoaChon(){
+            alert("Bạn có muốn xóa không")
+            localStorage.setItem("sanpham", null) 
+            location.reload();
+            
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/SanPhamAD.css">
+    <link rel="stylesheet" href="../assets/fontawesome-free-6.0.0-web/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <header class="header">
+            <div class="grid">
+                <div class="grid__row header-grid">
+                    <div class="welcome">
+                        <p class="welcome-text">Xin chào<i class="fa-solid fa-sort-down"></i></p>
+                        <div class="info">
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-user "></i>Tài khoản
+                                    </a>
+                                </li>
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-right-from-bracket"></i>Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="content">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__col1">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-dumpster icons-nav"></i>Tổng quan
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/LoaiSP.html" class="nav-link">
+                                    <i class="fa-solid fa-boxes-stacked icons-nav"></i>Loại sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/SanPham.html" class="nav-link">
+                                    <i class="fa-solid fa-barcode icons-nav"></i>Sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/NhaCungCap.html" class="nav-link">
+                                    <i class="fa-solid fa-truck icons-nav"></i>Nhà cung cấp
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/KhachHang.html" class="nav-link">
+                                    <i class="fa-solid fa-users icons-nav"></i>Khách hàng
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/HoaDonNhap.html" class="nav-link">
+                                    <i class="fa-solid fa-file-import icons-nav"></i>Tài khoản
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/HoaDonBan.html" class="nav-link">
+                                    <i class="fa-solid fa-cart-shopping icons-nav"></i>Hóa đơn bán
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-newspaper icons-nav"></i>Tin tức
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-gear icons-nav"></i>Thiết lập
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__col11">
+                        <div class="grid__row">
+                            <div class="grid__col11-col4">
+                                <div class="col4-infoadmin">
+                                    <div class="col4-infoadmin-title">
+                                        <h3><i class="fa-solid fa-truck"></i>Nhập thông tin nhà cung cấp</h3>
+                                    </div>
+                                    <form action="">
+                                        <div class="input">
+                                            <label for="">Mã tài khoản:</label><br>
+                                            <input type="text" placeholder="Nhập mã tài khoản..." id="matk">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Loại tài khoản:</label><br>
+                                            <input type="text" placeholder="Nhập mã loại tài khoản..." id ="maloaitk">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Tên tài khoản:</label><br>
+                                            <input type="text" placeholder="Nhập tên tài khoản..." style="border: 1px solid;" id="tentaikhoan">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Mật khẩu:</label><br>
+                                            <input type="email" placeholder="Nhập mật khẩu..." id="mk">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Số điện thoại:</label><br>
+                                            <input type="text" placeholder="Nhập số điện thoại..." id ="sdt">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Email:</label><br>
+                                            <input type="text" placeholder="Nhập Email..." id ="Email">
+                                        </div>
+                                    </form>
+                                    <hr style="margin-top: 20px; margin-bottom: 20px; background: #4B7BE5;">
+                                    <div class="btn-product">
+                                        <button class="add-product" onclick="ThemNhaCungCap()">Thêm nhà cung cấp</button>
+                                        <button class="nhap-product" onclick="NhapMoi()">Nhập mới</button>
+                                        <button class="update-product" onclick="CapNhap()">Cập nhập thông tin</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid__col11-col8">
+                                <div class="col8-title">
+                                    <h3><i class="fa-solid fa-truck"></i>Danh sách nhà cung cấp</h3>
+                                </div>
+                                <div class="col8-info">
+                                    <div class="col8-input">
+                                        <input type="text" placeholder="Nhập mã sản phẩm hoặc tên" style="width: 70%;padding: 0 10px; height: 40px; margin-top: 10px;">
+                                        <button class="btn-search"><i class="fa-solid fa-magnifying-glass" style="margin-right: 5px;"></i>Tìm kiếm</button>
+                                    </div>
+                                    <!-- <div class="col8-info-list">
+                                       
+                                        <p style="text-align: center;">Mã nhà cung cấp</p>
+                                        <p style="text-align: center;">Tên nhà cung cấp</p>
+                                        <p style="text-align: center;">Số điện thoại</p>
+                                        <p style="text-align: center;">Email</p>
+                                        <p style="text-align: center;">Địa chỉ </p>
+                                        <p style="text-align: center;">Thao tác</p>
+                                    </div> -->
+                                    <div class="table">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Mã nhà cung cấp</th>
+                                                    <!-- <th>Hình ảnh</th> -->
+                                                    <th>Tên nhà cung cấp</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Email</th>
+                                                    <th>Địa chỉ</th>
+                                                    <th>Thao tác</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="listproduct">
+                                                <!-- <tr>
+                                                    <td>Xe máy</td>
+                                                    <td></td>
+                                                    <td>01</td>
+                                                    <td>2000000</td>
+                                                    <td>Iphone</td>
+                                                    <td>Apple</td>
+                                                    <td>
+                                                        <i class="fas fa-trash-alt" title="Xóa"></i>
+                                                    </td>
+                                                </tr> -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col8-info-thongke">
+                                        <p>Số lượng nhà cung cấp: <span id="soluongncc"></span></p>
+                                    </div>
+                                    <button class="delete" onclick="XoaChon()">Xóa chọn</button>  
+                                    <!-- <button onclick="SuaNcc(${x.mancc})"></button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        var list = JSON.parse(localStorage.getItem('nhacungcap')) || [];
+
+        function ThemNhaCungCap(){
+            var mancc = document.getElementById('mancc').value;
+            var tenncc = document.getElementById('tenncc').value;
+            var sdt = document.getElementById('sdt').value;
+            var email = document.getElementById('email').value;
+            var diachi = document.getElementById('diachi').value;
+            var atdop = email.indexOf("@");
+            var dot = email.lastIndexOf(".");
+            
+
+            if(mancc == null || mancc == ""){
+                alert("Mã nhà cung cấp không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(tenncc == null || tenncc == ""){
+                alert("Tên nhà cung cấp không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(sdt == "" || isNaN(sdt) || sdt <= 11 ){
+                alert("Số điện thoại phải là kiểu số và không được lớn hơn 11 ! Vui lòng nhập lại")
+                return false
+            }
+            else if(email == null || email == ""){
+                alert("Email không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(atdop < 1 || dot < 1 ){
+                alert("Đây không phải là email")
+                return false;
+            }
+            else if(diachi == null || diachi == ""){
+                alert("Địa chỉ không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+
+            for(x of list){
+                if(x.mancc == mancc){
+                    alert("Mã nhà cung cấp đã tồn tại! Vui lòng nhập lại")
+                    return false;
+                }
+            }
+
+
+            if(list == null) list = [];
+            var ncc = {
+                'mancc': mancc,
+                'tenncc': tenncc,
+                'sdt': sdt,
+                'email': email,
+                'diachi': diachi,
+            }
+            list.push(ncc);
+            localStorage.setItem('nhacungcap', JSON.stringify(list));
+            alert("Thêm thành công")
+            location.reload();
+        }
+
+        function loaddata() {
+            let str = "";
+            let sl = 0;
+            for(x of list) {
+                sl++
+                str += `<tr>
+                            <td>${x.mancc}</td>
+                            <td>${x.tenncc}</td>
+                            <td>${x.sdt}</td>
+                            <td>${x.email}</td>
+                            <td>${x.diachi}</td>
+                            <td>
+                                <i class="fa-solid fa-pen-to-square"  onclick="SuaNcc('${x.mancc}')"></i>
+                                <i class="fa-solid fa-trash-can" onclick="Xoancc('${x.mancc}')"></i>
+                            </td>
+                        </tr>`;
+            }
+            document.getElementById('listproduct').innerHTML = str;
+            document.getElementById('soluongncc').innerHTML = sl;
+        }
+        loaddata();
+
+        function NhapMoi(){
+            var mancc = document.getElementById('mancc').value = "";
+            var tenncc = document.getElementById('tenncc').value = "";
+            var sdt = document.getElementById('sdt').value = "";
+            var email = document.getElementById('email').value = "";
+            var diachi = document.getElementById('diachi').value = "";
+        }
+
+        function SuaNcc(mancc){
+            for(x of list) {
+                if(x.mancc == mancc) {
+                    document.getElementById('mancc').value = x.mancc;
+                    document.getElementById('tenncc').value = x.tenncc;
+                    document.getElementById('sdt').value = x.sdt;
+                    document.getElementById('email').value = x.email;
+                    document.getElementById('diachi').value = x.diachi;
+                }
+            }
+        }
+
+        function Xoancc(mancc){
+            if(confirm("Bạn có muốn xóa nhà cung cấp")){
+                var index = list.findIndex(function(x){
+                    return x.mancc == mancc 
+                })
+                if(index >= 0){
+                    list.splice(index,1)
+                }
+                localStorage.setItem('nhacungcap', JSON.stringify(list));
+                location.reload();
+            }
+        }
+
+        function CapNhap(){
+            // alert("hi")
+            var mancc = document.getElementById('mancc').value;
+            var tenncc = document.getElementById('tenncc').value;
+            var sdt = document.getElementById('sdt').value;
+            var email = document.getElementById('email').value;
+            var diachi = document.getElementById('diachi').value;
+            var atdop = email.indexOf("@");
+            var dot = email.lastIndexOf(".");
+            var ok = true;
+
+            if(mancc == null || mancc == ""){
+                alert("Mã nhà cung cấp không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(tenncc == null || tenncc == ""){
+                alert("Tên nhà cung cấp không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(sdt == "" || isNaN(sdt) || sdt <= 11 ){
+                alert("Số điện thoại phải là kiểu số và không được lớn hơn 11 ! Vui lòng nhập lại")
+                return false
+            }
+            else if(email == null || email == ""){
+                alert("Email không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(atdop < 1 || dot < 1 ){
+                alert("Đây không phải là email")
+                return false;
+            }
+            else if(diachi == null || diachi == ""){
+                alert("Địa chỉ không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+
+            for(x of list) {
+                if(x.mancc == mancc){
+                    // x.mancc = mancc;
+                    x.tenncc = tenncc;
+                    x.sdt = sdt;
+                    x.email = email;
+                    x.diachi = diachi;
+                    ok = false;
+                    break;
+                }
+            }
+            if(ok == false){
+                alert("Cập nhập thành công")
+                localStorage.setItem("nhacungcap", JSON.stringify(list))
+                location.reload();
+            }
+            else{
+                alert("Cập nhập thông tin thất bại")
+            }
+        }
+
+
+        function XoaChon(){
+            alert("Bạn có muốn xóa không")
+            localStorage.setItem("nhacungcap", null) 
+            location.reload();
+            
+        }
+
+    </script>
+</body>
+</html>

@@ -52,7 +52,7 @@ namespace DataAccessLayer
                    "sp_khach_create",
                "@TenKhachHang", model.TenKhachHang,
                "@GioiTinh", model.GioiTinh,
-               "@Sđt", model.Sđt,
+               "@Sđt", model.Sdt,
                "@DiaChi", model.DiaChi,
                "@Email", model.Email);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
@@ -77,7 +77,7 @@ namespace DataAccessLayer
                 "@makhachhang" ,model.MaKhachHang,
                 "@tenKhachHang", model.TenKhachHang,
                 "@gioiTinh", model.GioiTinh,
-                "@sđt", model.Sđt,
+                "@sđt", model.Sdt,
                 "@diaChi", model.DiaChi,
                 "@email", model.Email);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
@@ -120,7 +120,7 @@ namespace DataAccessLayer
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_khach_search",
                     "@page_index", pageIndex,
                     "@page_size", pageSize,
-                    "@ten_khach", DiaChi,
+                    "@ten_khach", TenKhachHang,
                     "@dia_chi", DiaChi);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);

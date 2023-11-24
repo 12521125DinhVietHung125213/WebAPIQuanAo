@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/LoaiSPAD.css">
+    <link rel="stylesheet" href="../assets/fontawesome-free-6.0.0-web/css/all.min.css">
+    <title>Document</title>
+    <script src="../Js/angular.min.js"></script>
+    <script src="../Js/global.js"></script>
+    <script src="../Js/LoaiSP.js"></script>
+</head>
+<body ng-app = "AppQuanTri" ng-controller = "LoaiSPCtrl">
+    <div class="main">
+        <header class="header">
+            <div class="grid">
+                <div class="grid__row header-grid">
+                    <div class="welcome">
+                        <p class="welcome-text">Xin chào<i class="fa-solid fa-sort-down"></i></p>
+                        <div class="info">
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-user "></i>Tài khoản
+                                    </a>
+                                </li>
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-right-from-bracket"></i>Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="content">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__col1">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="../admin/Tongquan.html" class="nav-link">
+                                    <i class="fa-solid fa-dumpster icons-nav"></i>Tổng quan
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/LoaiSP.html" class="nav-link">
+                                    <i class="fa-solid fa-boxes-stacked icons-nav"></i>Loại sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/SanPham.html" class="nav-link">
+                                    <i class="fa-solid fa-barcode icons-nav"></i>Sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/NhaCungCap.html" class="nav-link">
+                                    <i class="fa-solid fa-truck icons-nav"></i>Nhà cung cấp
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/KhachHang.html" class="nav-link">
+                                    <i class="fa-solid fa-users icons-nav"></i>Khách hàng
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/HoaDonNhap.html" class="nav-link">
+                                    <i class="fa-solid fa-file-import icons-nav"></i>Tài Khoản
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/HoaDonBan.html" class="nav-link">
+                                    <i class="fa-solid fa-cart-shopping icons-nav"></i>Hóa đơn bán
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-newspaper icons-nav"></i>Tin tức
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-gear icons-nav"></i>Thiết lập
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__col11">
+                        <div class="grid__row">
+                            <div class="grid__col11-col4">
+                                <div class="info-product">
+                                    <div class="info-product-title">
+                                        <h3><i class="fa-solid fa-boxes-stacked icons-nav"></i>Nhập thông tin loại sản phẩm</h3>
+                                    </div>
+                                    <form action="">
+                                        <div class="ma-product">
+                                            <label for="">Mã danh mục:</label><br>
+                                            <input type="text" placeholder="Nhập mã loại sản phẩm..." id="maproduct">
+                                        </div>
+                                        <div class="name-product">
+                                            <label for="">Danh mục cha:</label><br>
+                                            <input type="text" placeholder="Nhập tên loại sản phẩm..." id="nameproduct">
+                                        </div>
+                                        <div class="name-product">
+                                            <label for="Tên danh mục">:</label><br>
+                                            <input type="text" placeholder="Nhập tên loại sản phẩm..." id="nameproduct">
+                                        </div>
+                                        <hr style="width: 95%; margin-top: 20px;margin-bottom: 20px; background: #4B7BE5; height: 2px;">
+                                        <div class="btn-product">
+                                            <button class="add-product" onclick="addproduct()" >Thêm loại sản phẩm</button>
+                                            <button class="nhap-product" onclick="Nhapmoi()">Nhập mới</button>
+                                            <button class="update-product" onclick="capnhap()">Cập nhập thông tin</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="grid__col11-col8">
+                                <div class="list-product-title">
+                                    <h3><i class="fa-solid fa-boxes-stacked icons-nav"></i>Danh sách loại sản phẩm</h3>
+                                </div>
+                                <div class="list-product-name">
+                                    <input type="text" placeholder="Nhập mã, tên loại sản phẩm...">
+                                    <button><i class="fa-solid fa-magnifying-glass" style="margin-right: 5px;"></i>Tìm kiếm</button>
+                                </div>
+                                <div class="table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Mã danh mục</th>
+                                                <th>Danh mục cha</th>
+                                                <th>Tên danh mục</th>
+
+                                                <th>Thao tác</th>
+                                            </tr>
+                                            <tr ng-repeat ="x in listMenu">
+                                                <th>{{x.maDanhMuc}}</th>
+                                                <th>{{x.danhMucCha}}</th>
+                                                <th>{{x.tenDanhMuc}}</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody id="listproduct"></tbody>
+                                            <!-- <tr>
+                                                <td>01</td>
+                                                <td>Điện thoại</td>
+                                                <td>
+                                                <i class="fas fa-trash-alt" title="Xóa"></i>
+                                                </td>
+                                            </tr> -->
+                                        
+                                    </table>
+                                </div>
+                                <!-- <form action="">
+                                    <div class="list-product-item">
+                                        <div class="input-check">
+                                            <input type="checkbox">
+                                        </div>
+                                        <p>Mã loại sản phẩm</p>
+                                        <p>Tên loại sản phẩm</p>
+                                        <p>Thao tác</p>
+                                    </div>
+                                </form> -->
+                                <div class="statistics">
+                                    <span>Số lượng loại sản phẩm: <span id="sl">0</span></span>
+                                </div>
+                                <button class="delete" onclick="XoaChon()">Xóa chọn</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        var list = JSON.parse(localStorage.getItem('TypeProduct')) || [];
+        function addproduct(){
+            var number = /^[0-9]+$/;
+            var maloai = document.getElementById("maproduct").value;
+            var tenloai = document.getElementById("nameproduct").value;
+
+            if (maloai == null || maloai == "") {
+                var d = new Date();
+                maloai = Number(d);
+            }
+            else if (!maloai.match(number) || maloai.length >= 5) {
+                alert("Mã loại phải là kiểu số và có độ dài không lớn hơn 5! Vui lòng nhập lại!");
+                return false;
+            }
+
+            if (tenloai == null || tenloai == "") {
+                alert("Tên loại không được để trống! Vui lòng nhập lại!");
+                return false;
+            }
+            else {
+                for (var x of list) {
+                    if (x.maloai == maloai) {
+                        alert("Mã loại đã tồn tại! Vui lòng nhập lại!")
+                        return false;
+                    }
+                }
+            }
+
+            if (list == null) list = [];
+            var typeproduct = {
+                "maloai": maloai,
+                "tenloai": tenloai
+            };
+            list.push(typeproduct);
+            localStorage.setItem("TypeProduct", JSON.stringify(list));
+            alert("Đã thêm thành công!");
+            location.reload();
+        }
+        
+        function LoadData() {
+            var str = "";
+            var sl = 0;
+            list.sort();
+            for (var x of list) {
+                sl++;
+                str += `<tr>
+                        <td>`+ x.maloai + `</td>
+                        <td>`+ x.tenloai + `</td>
+                        <td style="text-align: center;">
+                            <i class="fa-solid fa-pen-to-square" title= "Sửa" onclick="SuaLoaiSanPham(`+x.maloai+`)"></i>
+                            <i class="fas fa-trash-alt" title="Xóa" onclick="XoaLoaiSanPham(`+ x.maloai + `)"></i>
+                        </td>
+                    </tr>
+                `;
+            }
+            document.getElementById("listproduct").innerHTML = str;
+            document.getElementById("sl").innerHTML = sl;
+        }
+        LoadData();
+
+        function capnhap() {
+            var maloai = document.getElementById("maproduct").value;
+            var tenloai = document.getElementById("nameproduct").value;
+            var ok = true;
+
+            if (tenloai == null || tenloai == "") {
+                alert("Tên loại không được để trống! Vui lòng nhập lại!");
+                return false;
+            }
+
+            for (x of list) {
+                if (x.maloai == maloai) {
+                    x.tenloai = tenloai;
+                    ok = false;
+                    break;
+                }
+            }
+
+            if (ok == false) {
+                alert("Cập nhật thông tin thành công!");
+                localStorage.setItem("TypeProduct", JSON.stringify(list));
+                location.reload();
+            }
+            else {
+                alert("Cập nhật thông tin thất bại!");
+            }
+        }
+
+        function XoaLoaiSanPham(maloai) {
+            if (confirm("Bạn chắc chắn muốn xóa!")) {
+                var index = list.findIndex(x => x.maloai == maloai);
+                // findindex trả về vị trí phần tử đầu tiên thỏa mãn điều kiện
+                //  function (x){
+                //     return x.maloai == maloai
+                // }
+                // x là value
+                // kiểm tra x.maloai == maloai => giá trị phần tử  có mã loại 123 == maloai muốn xóa
+                // nếu đúng trả về vị trí của x
+                console.log(index)
+                if (index >= 0) {
+                    list.splice(index, 1);
+                }
+                LoadData();
+                localStorage.setItem('TypeProduct', JSON.stringify(list));
+            }
+        }
+
+        function SuaLoaiSanPham(maloai){
+            for(x of list){
+                if(x.maloai == maloai){
+                    document.getElementById("maproduct").value = x.maloai;
+                    document.getElementById("nameproduct").value = x.tenloai;
+                }
+            }
+        }
+
+        function Nhapmoi(){
+            document.getElementById("maproduct").value = "";
+            document.getElementById("nameproduct").value = "";
+        }
+
+
+        function XoaChon(){
+            alert("Bạn có muốn xóa không")
+            localStorage.setItem("TypeProduct", null) 
+            location.reload();
+            
+        }
+
+    </script>
+</body>
+</html>

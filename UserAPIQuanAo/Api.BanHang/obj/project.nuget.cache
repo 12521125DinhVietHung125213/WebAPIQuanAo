@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dQ6KhZ1Mh78Um7SFvWRYeVjA1evBBuObfvXV2UV2KbR0fmVxiRTi4uIbBURAQGGil6BJFoECnu3FuS8b4hM/fw==",
+  "dgSpecHash": "S4eHuQKi3BFKkIOE3mnHdbVBCO/VLuU+Dkq9PfKl2mLZ3xzoWTt0fCTbNvw7s6JHh265Ja7Tw+EQT6oqFZIt0w==",
   "success": true,
-  "projectFilePath": "D:\\Bài Tập\\Kì 1 - Năm 3\\BTL HDV\\UserAPIQuanAo\\Api.BanHang\\Api.BanHang.csproj",
+  "projectFilePath": "D:\\Bài Tập\\Kì 1 - Năm 3\\BTL HDV\\UserAPIQuanAo\\Api.BanHang\\ApiUser.BanHang.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.22\\microsoft.aspnetcore.authentication.jwtbearer.6.0.22.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

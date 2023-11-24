@@ -11,6 +11,6 @@ namespace DataAccessLayer
     {
         DanhMucModel GetDatabyID(string id);
         DanhMucModel GetAll();
-
+        public List<DanhMucModel> Search(int pageIndex, int pageSize, out long total, string danh_muc_cha, string ten_danh_muc);
     }
 }

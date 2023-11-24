@@ -1,0 +1,201 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html{
+    box-sizing: border-box;
+}
+body{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+:root{
+    --white-color: #fff;
+    --text-color : #333;
+}
+.grid{
+    width: 1200px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-left: -5px;
+    margin-right: -5px; */
+    margin-top: 10px;
+}  
+
+.home__login-header{
+    margin: 30px 0;
+    
+    
+}
+.home__login-header-title{
+    background-color: #fc5a32;
+    height: 46px;
+    width: 150px;
+    color: var(--white-color);
+    text-align: center;
+    line-height: 46px;
+    border-bottom: 1px #fc5a32 solid;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.hr{
+    background-color: #fc5a32;
+    width: 100%;
+    color: #fc5a32;
+    
+}
+.home__login-content-info-name{
+    padding: 20px 0;
+    
+}
+.home__login-content{
+    display: flex;
+    justify-content: space-between;
+}
+.home__login-content-info{
+    width: 50%;
+}
+.home__login-content-info-name h3{
+    font-size: 18px;
+    font-weight: 500;
+}
+.home__login-content-info-kh-account{
+    display: flex;
+    padding: 10px 0;
+}
+.home__login-content-info-kh-account-label{
+    min-width: 200px;
+    padding: 10px 0;
+}
+.home__login-content-info-kh-account-input{
+    flex: 1;
+    height: 35px;
+    outline: none;
+    padding: 0 5px;
+}
+.home__login-content-info-kh-input{
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.home__login-content-info-kh-input-btn{
+    background-color: #fc5a32;
+    height: 40px;
+    width: 100px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    color: var(--white-color);
+}
+.home__login-content-info-kh-input-btn:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+.home__login-content-info-kh-input-misspass{
+    text-decoration: none;
+}
+.home__login-content-info-kh-input-misspass:hover{
+    text-decoration: underline;
+    opacity: 0.6;
+}
+.home__login-content-info-kh-fbgm{
+    display: flex;
+    justify-content: center;
+}
+.home__login-content-info-kh-fb{
+    height: 35px;
+    background-color: #0168fa;
+    border: none;
+    outline: none;
+    color: var(--white-color);
+    padding: 0 10px;
+    cursor: pointer;
+}
+.home__login-content-info-kh-gm{
+    margin-left: 10px;
+    height: 35px;
+    background-color: #fc5a32;
+    border: none;
+    outline: none;
+    color: var(--white-color);
+    padding: 0 10px;
+    cursor: pointer;
+}
+.icons{
+    margin: 0 5px;
+}
+.home__login-content-text{
+    width: 45%;
+    
+}
+.home__login-content-text-name-h3{
+    padding: 20px 0;
+    font-weight: 500;
+}
+.home__login-content-text-name a{
+    text-decoration: none;
+    padding: 10px 0;
+    display: block;
+    color: #0168fa;
+}
+.home__login-content-text-name a:hover{
+    text-decoration: underline;
+    opacity: 0.6;
+}
+
+/* form đăng kí */
+.home-dangki-header{
+    margin-top: 20px;
+}
+.home-dangki-header-title{
+    background-color: #fc5a32;
+    height: 46px;
+    width: 150px;
+    color: var(--white-color);
+    text-align: center;
+    line-height: 46px;
+    border-bottom: 1px #fc5a32 solid;
+    border-radius: 10px 10px 10px 10px;
+}
+.hr{
+    background-color: #fc5a32;
+    width: 100%;
+    color: #fc5a32;
+}
+.home-dangki-info-list{
+    display: flex;
+    margin-top: 30px;
+}
+.home-dangki-info-list-left{
+    min-width: 200px;
+    line-height: 40px;
+}
+.home-dangki-info-list-right{
+    flex: 1;
+    height: 40px;
+    padding: 0 10px;
+    
+    outline: none;
+}
+.home-dangki-btn{
+    margin-top: 30px;
+    display: flex;
+    
+    justify-content: center;
+}
+.home-dangki-btn-btns{
+    background-color: #0168fa;
+    height: 40px;
+    width: 100px;
+    border: none;
+    outline: none;
+    color: var(--white-color);
+    border-radius: 3px;
+}
+.home-dangki-btn-btns:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}

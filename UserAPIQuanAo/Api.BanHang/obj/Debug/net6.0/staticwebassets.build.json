@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "jr12eIkWQ9J1o+PyaYRDXq8gIs0Gbbf2/u8Bl/A/jCY=",
-  "Source": "Api.BanHang",
-  "BasePath": "_content/Api.BanHang",
+  "Hash": "eqs/Ei3fdBUB2KyMYuPhr/tLl5r29o465ca+29VKu2Y=",
+  "Source": "ApiUser.BanHang",
+  "BasePath": "_content/ApiUser.BanHang",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

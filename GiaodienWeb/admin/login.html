@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/loginQT.css">
+    <link rel="stylesheet" href="/assets/fontawesome-free-6.0.0-web/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <section id="main">
+        <div class="login-btn">
+            <img src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png" alt="">
+        </div>
+        <div class="form" id="formQT">
+            <form class="form-all" id="formQT">
+                <h2 class="title">Log In</h2>
+                <div class="form-user">
+                    <input type="text" placeholder="UserName" required id="taikhoan">
+                </div>
+                <div class="form-password">
+                    <input type="password" placeholder="Password" required id="matkhau">
+                </div>
+                <div class="form-btn">
+                    <!-- <button class="btn">Login</button>
+                     -->
+                     <input type="submit" value="Log In" class="inputsubmit">
+                </div>
+                <div class="form-miss">
+                    <!-- <span>Remember me</span> -->
+                    <a href="#">Porgotten password</a>
+                </div>
+                <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+        </div>
+    </section>
+    <script>
+        const btnLogin = document.querySelector('.login-btn')
+        const jsFrom = document.querySelector('.form')
+        const close = document.querySelector('.btn-close')
+        
+        btnLogin.addEventListener('click', function(){
+            jsFrom.style.display = 'block'
+            btnLogin.style.display = 'none'
+        })
+        close.addEventListener('click', function(){
+            jsFrom.style.display = 'none'
+            btnLogin.style.display = 'block'
+        })
+
+        var list = JSON.parse(localStorage.getItem('staff')) || [
+            {
+                tennv: "",
+                manv: "admin",
+                mknv: "123",
+                sdt: "",
+                job: ""
+            }
+        ];
+
+        $("#formQT").submit(function(e){
+            var user = document.getElementById('taikhoan').value
+            var pass = document.getElementById('matkhau').value
+            for(var x of list){
+                if((user == x.manv && pass == x.mknv)){
+                    var users = {
+                        tennv: x.tennv,
+                        manv: x.manv,
+                        mknv: x.mknv,
+                        sdt: x.sdt,
+                        job: x.job
+                    };
+                    localStorage.setItem('user', JSON.stringify(users));
+                    window.location.href = "../admin/Tongquan.html";
+                    break;
+                }
+                else if (user != x.manv && pass != x.mknv) {
+                    alert("Tên đăng nhập hoặc mật khẩu không đúng");
+                    break;
+                }
+            }
+            e.preventDefault();
+        });
+
+    </script>
+</body>
+</html>

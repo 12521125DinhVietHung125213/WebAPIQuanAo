@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/HoaDon.css">
+    <link rel="stylesheet" href="../assets/fontawesome-free-6.0.0-web/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <header class="header">
+            <div class="grid">
+                <div class="grid__row header-grid">
+                    <div class="welcome">
+                        <p class="welcome-text">Xin chào<i class="fa-solid fa-sort-down"></i></p>
+                        <div class="info">
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-user "></i>Tài khoản
+                                    </a>
+                                </li>
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-right-from-bracket"></i>Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="content">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__col1">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-dumpster icons-nav"></i>Tổng quan
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/LoaiSP.html" class="nav-link">
+                                    <i class="fa-solid fa-boxes-stacked icons-nav"></i>Loại sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/SanPham.html" class="nav-link">
+                                    <i class="fa-solid fa-barcode icons-nav"></i>Sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/NhaCungCap.html" class="nav-link">
+                                    <i class="fa-solid fa-truck icons-nav"></i>Nhà cung cấp
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/KhachHang.html" class="nav-link">
+                                    <i class="fa-solid fa-users icons-nav"></i>Khách hàng
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/HoaDonNhap.html" class="nav-link">
+                                    <i class="fa-solid fa-file-import icons-nav"></i>Tài Khoản
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/HoaDonBan.html" class="nav-link">
+                                    <i class="fa-solid fa-cart-shopping icons-nav"></i>Hóa đơn bán
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-newspaper icons-nav"></i>Tin tức
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-gear icons-nav"></i>Thiết lập
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__col11">
+                        <div class="grid__row">
+                            <div class="grid__col11-col4">
+                                <div class="col4-infoadmin">
+                                    <div class="col4-infoadmin-title">
+                                        <h3>Nhập thông tin hóa đơn bán</h3>
+                                    </div>
+                                    <form action="">
+                                        <div class="input">
+                                            <label for="">Mã hóa đơn bán:</label><br>
+                                            <input type="text" placeholder="Nhập mã hóa đơn bán..." id="mahdb">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Tên Khách hàng:</label><br>
+                                            <input type="text" placeholder="Nhập tên khách hàng..." id="tenkh">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Số điện thoại:</label><br>
+                                            <input type="text" placeholder="Nhập số điện thoại..." id="sdt">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Địa chỉ:</label><br>
+                                            <input type="text" placeholder="Nhập địa chỉ..." id="diachi">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Mã sản phẩm:</label><br>
+                                            <input type="text" placeholder="Nhập sản phẩm..." id="masp">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Số lượng:</label><br>
+                                            <input type="text" placeholder="0" id = "sl">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Đơn giá:</label><br>
+                                            <input type="text" placeholder="0" id="dongia">
+                                        </div>
+                                    </form>
+                                    <hr style="margin-top: 20px; margin-bottom: 20px; background: #4B7BE5;">
+                                    <table class="table_chitiet">
+                                        <thead >
+                                            <tr>
+                                                <th>Mã khách hàng</th>
+                                                <th>Tên khách hàng</th>
+                                                <th>Số điện thoại</th>
+                                                <th>Địa chỉ</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody id="dskhachhang">
+
+                                        </tbody>
+                                    </table>
+                                    <hr style="margin-top: 20px; margin-bottom: 20px; background: #4B7BE5;">
+
+                                    <table class="table_chitiet">
+                                        <thead >
+                                            <tr>
+                                                <th>Mã sản phẩm</th>
+                                                <th>Tên sản phẩm</th>
+                                                <th>Số lượng</th>
+                                                <th>Đơn giá</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody id="DSSanPham">
+
+                                        </tbody>
+                                    </table>
+                                    <hr style="margin-top: 20px; margin-bottom: 20px; background: #4B7BE5;">
+                                    <div class="btn-product">
+                                        <button class="add-product" onclick="ThemHDB()">Thêm hóa đơn bán</button>
+                                        <button class="nhap-product" onclick="NhapmoiHDB()">Nhập mới</button>
+                                        <button class="update-product" onclick="CapnhapHDB()">Cập nhập thông tin</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid__col11-col8">
+                                <div class="col8-title">
+                                    <h3>Danh sách hóa đơn bán</h3>
+                                </div>
+                                <div class="col8-info">
+                                    <div class="col8-input">
+                                        <input type="text" placeholder="Nhập mã hóa đơn bán" style="width: 70%;padding: 0 10px; height: 40px; margin-top: 10px;">
+                                        <button class="btn-search"><i class="fa-solid fa-magnifying-glass" style="margin-right: 5px;"></i>Tìm kiếm</button>
+                                    </div>
+                                    <div class="table" style="margin-top: 10px;">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Mã HDB</th>
+                                                    <th>Khách hàng</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Địa chỉ</th>
+                                                    <th>Mã sản phẩm</th>
+                                                    <th>Số lượng</th>
+                                                    <th>Đơn giá</th>
+                                                    <th>Thao tác</th>
+                                                </tr>
+                                                <tr ng-repeat="x in listMenu" onclick="editClick()">
+                                                    <th>{{x.tenSanPham}}</th>
+                                                    <!-- <th>Hình ảnh</th> -->
+                                                    <th>{{x.soLuong}}</th>
+                                                    <th>{{x.gia}}</th>
+                                                    <th>{{x.maDanhMuc}}</th>
+                                                    <th>{{x.size}}</th>
+                                                    <th>{{x.mauSac}}</th>
+                                                    <th><button onclick="editClick()"> edit</button></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="listproduct"></tbody>
+                                                <!-- <tr>
+                                                    <td>01</td>
+                                                    <td>Điện thoại</td>
+                                                    <td>
+                                                    <i class="fas fa-trash-alt" title="Xóa"></i>
+                                                    </td>
+                                                </tr> -->
+                                            
+                                        </table>
+                                    </div>
+                                    <div class="col8-info-thongke">
+                                        <p style="padding: 20px;">Số lượng hóa đơn: <span id="soluong"></span></p>
+                                        <p style="padding: 20px;">Tổng tiền: <span id="tongtien"></span></p>
+                                    </div>
+                                    <button class="delete" onclick="XoaChon()">Xóa chọn</button>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        var list = JSON.parse(localStorage.getItem('hoadonban')) || [];
+        var kh = JSON.parse(localStorage.getItem('khachhang')) || [];
+        var sp = JSON.parse(localStorage.getItem('sanpham')) || [];
+
+        function loadhdb(){
+            var hdb = "";
+            var sl = 0;
+            var tongtien = 0;
+            for(x of list){
+                sl ++;
+                tongtien += x.soluong * x.dongia;
+                for(z of sp){
+                    hdb += `<tr>
+                                <td>${x.mahdb}</td>
+                                <td>${x.tenkh}</td>
+                                <td>${x.sdt}</td>
+                                <td>${x.diachi}</td>
+                                <td>${z.masp}</td>
+                                <td>${x.soluong}</td>
+                                <td>${x.dongia}</td>
+                                <td>
+                                    <i class="fa-solid fa-pen-to-square" title= "Sửa" onclick="Suahdb('${x.mahdb}')"></i>
+                                    <i class="fas fa-trash-alt" title="Xóa" onclick="Xoahdb('${x.mahdb}')"></i>
+                                </td>
+                            </tr>`;
+                }
+            }
+            document.getElementById('listproduct').innerHTML = hdb;
+            document.getElementById('soluong').innerHTML = sl;
+            document.getElementById('tongtien').innerHTML = tongtien;
+        }
+
+        function loadkh(){
+            var khachhang = "";
+            for(x of kh){
+                khachhang += `<tr>
+                            <td>${x.makh}</td>
+                            <td>${x.tenkh}</td>
+                            <td>${x.sdt}</td>
+                            <td>${x.diachi}</td>
+                        </tr>`;
+            }
+            document.getElementById('dskhachhang').innerHTML = khachhang;
+        }
+
+
+        function loadsp(){
+            var sanpham = "";
+            for(x of sp){
+                sanpham += `<tr>
+                            <td>${x.masp}</td>
+                            <td>${x.tensp}</td>
+                            <td>${x.soluong}</td>
+                            <td>${x.giaban}</td>
+                        </tr>`;
+            }
+            document.getElementById('DSSanPham').innerHTML = sanpham;
+        }
+        loadsp();
+        loadkh();
+        loadhdb();
+
+
+
+
+        function ThemHDB(){
+            var mahdb = document.getElementById('mahdb').value;
+            var tenkh = document.getElementById('tenkh').value;
+            var sdt = document.getElementById('sdt').value;
+            var diachi = document.getElementById('diachi').value; 
+            var masp = document.getElementById('masp').value;
+            var sl = document.getElementById('sl').value;
+            var dongia = document.getElementById('dongia').value;
+
+            if(mahdb == null || mahdb == ""){
+                alert("Vui lòng nhập mã hóa đơn bán!")
+                return false;
+            }
+            else if(sl < 0 || isNaN(sl)){
+                alert("Số lượng không được nhỏ hơn không")
+                return false;
+            }
+            else if(dongia < 0 || isNaN(dongia)){
+                alert("Đơn giá không được nhỏ hơn không!")
+            }
+            for(x of kh){
+                if(x.tenkh != tenkh){
+                    alert("Tên khách hàng không đúng! Vui lòng nhập lại")
+                    return false;
+                }
+                else if(x.sdt != sdt){
+                    alert("Số điện thoại khách hàng không đúng! Vui lòng nhập lại")
+                    return false;
+                }
+                else if(x.diachi != diachi){
+                    alert("Địa chỉ khách hàng không đúng! Vui lòng nhập lại")
+                    return false;
+                }
+            }
+            for(x of sp){
+                if(x.masp != masp){
+                    alert("Mã sản phẩm không đúng! Vui lòng nhập lại")
+                    return false;
+                }
+            }
+
+            if(list == null) list = [];
+            var hdb = {
+                'mahdb': mahdb,
+                'tenkh': tenkh,
+                'sdt': sdt,
+                'diachi': diachi,
+                'masp': masp,
+                'soluong': sl,
+                'dongia': dongia,
+            }
+            list.push(hdb);
+            localStorage.setItem("hoadonban", JSON.stringify(list));
+            alert("Thêm thành công")
+            location.reload();
+
+        }
+
+        function NhapmoiHDB() {
+            var mahdb = document.getElementById('mahdb').value = ""
+            var tenkh = document.getElementById('tenkh').value = ""
+            var sdt = document.getElementById('sdt').value = ""
+            var diachi = document.getElementById('diachi').value = "" 
+            var masp = document.getElementById('masp').value = ""
+            var sl = document.getElementById('sl').value = ""
+            var dongia = document.getElementById('dongia').value = ""
+        }
+
+        function CapnhapHDB() {
+            var mahdb = document.getElementById('mahdb').value;
+            var tenkh = document.getElementById('tenkh').value;
+            var sdt = document.getElementById('sdt').value;
+            var diachi = document.getElementById('diachi').value; 
+            var masp = document.getElementById('masp').value;
+            var sl = document.getElementById('sl').value;
+            var dongia = document.getElementById('dongia').value;
+            var ok = true;
+
+            if(mahdb == null || mahdb == ""){
+                alert("Vui lòng nhập mã hóa đơn bán!")
+                return false;
+            }
+            else if(sl < 0 || isNaN(sl)){
+                alert("Số lượng không được nhỏ hơn không")
+                return false;
+            }
+            else if(dongia < 0 || isNaN(dongia)){
+                alert("Đơn giá không được nhỏ hơn không!")
+            }
+            for(x of kh){
+                if(x.tenkh != tenkh){
+                    alert("Tên khách hàng không đúng! Vui lòng nhập lại")
+                    return false;
+                }
+                else if(x.sdt != sdt){
+                    alert("Số điện thoại khách hàng không đúng! Vui lòng nhập lại")
+                    return false;
+                }
+                else if(x.diachi != diachi){
+                    alert("Địa chỉ khách hàng không đúng! Vui lòng nhập lại")
+                    return false;
+                }
+            }
+            for(x of sp){
+                if(x.masp != masp){
+                    alert("Mã sản phẩm không đúng! Vui lòng nhập lại")
+                    return false;
+                }
+            }
+            for(x of list){
+                if(x.mahdb == mahdb){
+                    x.tenkh = tenkh;
+                    x.sdt = sdt;
+                    x.diachi = diachi;
+                    x.masp = masp;
+                    x.soluong = sl;
+                    x.dongia = dongia;
+                    ok = false;
+                    break;
+                }
+            }
+            if(ok == false){
+                alert("Cập nhập thành công")
+                localStorage.setItem("hoadonban", JSON.stringify(list));
+                location.reload();
+            }
+            else{
+                alert("Cập nhập thất bại")
+            }
+
+        }
+
+        function Suahdb(mahdb){
+            for(x of list){
+                for(y of sp){
+                    var mahdb = document.getElementById('mahdb').value = x.mahdb
+                    var tenkh = document.getElementById('tenkh').value = x.tenkh
+                    var sdt = document.getElementById('sdt').value = x.sdt
+                    var diachi = document.getElementById('diachi').value = x.diachi 
+                    var masp = document.getElementById('masp').value = y.masp
+                    var sl = document.getElementById('sl').value = x.soluong
+                    var dongia = document.getElementById('dongia').value = x.dongia
+                }
+            }
+        }
+        function Xoahdb(mahdb){
+            if(confirm("Bạn có muốn xóa không!")){
+                var index = list.findIndex(function(x){
+                    return x.mahdb == mahdb
+                })
+                if(index >= 0){
+                    list.splice(index, 1)
+                }
+                localStorage.setItem("hoadonban", JSON.stringify(list));
+                location.reload()
+            }
+        }
+
+        function XoaChon(){
+            alert("Bạn có muốn xóa không")
+            localStorage.setItem("hoadonban", null) 
+            location.reload();
+            
+        }
+
+
+    </script>
+</body>
+</html>

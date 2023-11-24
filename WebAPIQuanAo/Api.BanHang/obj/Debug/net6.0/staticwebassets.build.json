@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "jr12eIkWQ9J1o+PyaYRDXq8gIs0Gbbf2/u8Bl/A/jCY=",
-  "Source": "Api.BanHang",
-  "BasePath": "_content/Api.BanHang",
+  "Hash": "3aVg5am4w8r9fBmuQZL6aYkvQeoiRdovFb78YHIci1w=",
+  "Source": "ApiAdmin.BanHang",
+  "BasePath": "_content/ApiAdmin.BanHang",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
