@@ -54,10 +54,10 @@ namespace Api.BanHang.Controllers
 
         [Route("Delete-SanPham")]
         [HttpDelete]
-        public SanPhamModel DeleteItem([FromBody] SanPhamModel model)
+        public IActionResult DeleteItem(string MaSanPham)
         {
-            _sanPhamBusiness.Delete(model);
-            return model;
+            _sanPhamBusiness.Delete(MaSanPham);
+            return Ok(new { message = "Xóa thành công" });
         }
 
         [Route("Search-Gia")]

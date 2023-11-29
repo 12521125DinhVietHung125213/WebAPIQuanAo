@@ -77,7 +77,7 @@ namespace DataAccessLayer
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(
                     out msgError,
-                    "sp_DanhMuc_create",
+                    "sp_Danhmuc_update",
                 "@MaDanhMuc" , model.MaDanhMuc,
                "@DanhMucCha", model.DanhMucCha,
                "@TenDanhMuc", model.TenDanhMuc);
@@ -92,13 +92,13 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
-        public bool Delete(DanhMucModel model)
+        public bool Delete(string MaDanhMuc)
         {
             string msgError = "";
             try
             {
-                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_DanhMuc_delete",
-                "@MaDanhMuc", model.MaDanhMuc);
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_Danhmuc_delete",
+                "@MaDanhMuc", MaDanhMuc);
                 ;
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {

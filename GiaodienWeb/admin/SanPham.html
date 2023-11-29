@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="../assets/fontawesome-free-6.0.0-web/css/all.min.css">
     <script src="../Js/angular.min.js"></script>
     <script src="../Js/global.js"></script>
-    <script src="../Js/home.js"></script>
+    <script src="../Js/Sanpham.js"></script>
     <title>Document</title>
 </head>
-<body ng-app="AppBanHang" ng-controller="HomeCtrl">
+<body ng-app="AppQuanTri" ng-controller="CtrlSanPham">
     <div class="main">
         <header class="header">
             <div class="grid">
@@ -95,46 +95,46 @@
                                     <div class="col4-infoadmin-title">
                                         <h3><i class="fa-solid fa-barcode icons-nav"></i>Nhập thông tin sản phẩm</h3>
                                     </div>
-                                    <form action="" ng-submit="submitForm()">
+                                    <form >
                                         <div class="input">
                                             <label for="">Loại sản phẩm:</label><br>
-                                            <input ng-model="sp.maDanhMuc"  type="text" id="loaisp"  placeholder="Nhập loai sản phẩm...">
+                                            <input ng-model="Sp.maDanhMuc"  type="text" id="loaisp"  placeholder="Nhập loai sản phẩm...">
                                         </div>
                                         <div  class="input">
                                             <label for="">Mã sản phẩm:</label><br>
-                                            <input ng-model="sp.maSanPham" type="text" id="masp"  placeholder="Nhập mã sản phẩm...">
+                                            <input ng-model="Sp.maSanPham" type="text" id="masp"  placeholder="Nhập mã sản phẩm...">
                                         </div>
                                         <div  class="input">
                                             <label for="">Tên sản phẩm:</label><br>
-                                            <input ng-model="sp.tenSanPham" type="text" id="tensp" placeholder="Nhập tên sản phẩm...">
+                                            <input ng-model="Sp.tenSanPham" type="text" id="tensp" placeholder="Nhập tên sản phẩm...">
                                         </div>
-                                        <!-- <div class="input">
-                                            <label for="">Hình ảnh:</label><br>
-                                            <input type="file" id="img" placeholder="Nhập tên sản phẩm..." style="border: 1px solid;">
-                                        </div> -->
                                         <div class="input">
                                             <label for="">Số lượng:</label><br>
-                                            <input ng-model="sp.soLuong" type="number" id="soluong" placeholder="Nhập số lượng sản phẩm...">
+                                            <input ng-model="Sp.soLuong" type="number" id="soluong" placeholder="Nhập số lượng sản phẩm...">
                                         </div>
                                         <div  class="input">
                                             <label for="">Giá bán:</label><br>
-                                            <input ng-model="sp.gia" type="text" id="gia" placeholder="Nhập giá sản phẩm...">
+                                            <input ng-model="Sp.gia" type="text" id="gia" placeholder="Nhập giá sản phẩm...">
                                         </div>
                                         <div  class="input">
                                             <label for="">Kích cỡ:</label><br>
-                                            <input ng-model="sp.size" type="text" id="size" placeholder="Nhập kích cỡ...">
+                                            <input ng-model="Sp.size" type="text" id="size" placeholder="Nhập kích cỡ...">
                                         </div>
                                         <div  class="input">
                                             <label for="">Màu sắc:</label><br>
-                                            <input ng-model="sp.mauSac" type="text" id="color" placeholder="Nhập màu sắc...">
+                                            <input ng-model="Sp.mauSac" type="text" id="color" placeholder="Nhập màu sắc...">
                                         </div>
                                         <hr style="margin-top: 20px; margin-bottom: 20px; background: #4B7BE5;">
                                         <div class="btn-product">
-                                            <button type="submit" class="add-product" ng-click="" >Thêm loại sản phẩm</button>
-                                            <button class="nhap-product" >Nhập mới</button>
-                                            <button type="submit" class="update-product" >Cập nhập thông tin</button>
+                                        
+                                            <input type="button" ng-click="insertData()" class="add-product" value="{{btntext}}"  /> 
+                                            <input type="button" ng-click="updateSP(Sp.maSanPham)" class="update-product" value="{{btntextud}}"  ></input>
+    
                                         </div>
+                                        
                                     </form>
+                                    
+                                  
                                 </div>
                             </div>
                             <div class="grid__col11-col8">
@@ -173,17 +173,9 @@
                                         </select>
                                         <button class="btn-search"><i class="fa-solid fa-magnifying-glass" style="margin-right: 5px;"></i>Tìm kiếm</button>
                                     </div>
-                                    <div class="table">
-                                        <!-- <input type="checkbox"> -->
-                                        <!-- <p>Mã sản phẩm</p>
-                                        <p>Tên sản phẩm</p>
-                                        <p>Hình ảnh</p>
-                                        <p>Số lượng</p>
-                                        <p>Giá bán</p>
-                                        <p>Loại sản phẩm</p>
-                                        <p>Nhà cung cấp</p>
-                                        <p>Thao tác</p> -->
-                                        <table id="table">
+                                    <div  class="table">
+
+                                        <table id="table" >
                                             <thead>
                                                 <tr>
                                                     <th>Mã Sản Phẩm</th>
@@ -193,25 +185,28 @@
                                                     <th>Loại sản phẩm</th>
                                                     <th>Kích cỡ</th>
                                                     <th>Màu sắc</th>
+                                                    <th>Action</th>
                                                 </tr>
-                                                <tr ng-repeat="x in listMenu" onclick="editClick()">
-                                                    <th>{{x.maSanPham}}</th>
-                                                    <th>{{x.tenSanPham}}</th>
-                                                    <th>{{x.soLuong}}</th>
-                                                    <th>{{x.gia}}</th>
-                                                    <th>{{x.maDanhMuc}}</th>
-                                                    <th>{{x.size}}</th>
-                                                    <th>{{x.mauSac}}</th>
-                                                    <th><button onclick="editClick()"> edit</button></th>
+                                                <tr ng-repeat="sp in SPlist">
+                                                    <td>{{sp.maSanPham}}</td>
+                                                    <td>{{sp.tenSanPham}}</td>
+                                                    <td>{{sp.soLuong}}</td>
+                                                    <td>{{sp.gia}}</td>
+                                                    <td>{{sp.maDanhMuc}}</td>
+                                                    <td>{{sp.size}}</td> 
+                                                    <td>{{sp.mauSac}}</td>
+                                                    <td>
+                                                        <input type="button" class="update-sanpham"   onclick="UpdateClick()" value="Update">
+                                                        <input type="button" class="delete-sanpham" ng-click = DeleteSP(sp.maSanPham) value="Delete">
+                                                    </td>
                                                 </tr>
                                             </thead>
                                             
                                         </table>
                                     </div>
-                                    <div class="col8-info-thongke">
+                                    <!-- <div class="col8-info-thongke">
                                         <p>Số lượng sản phẩm: <span id="soluong">0</span></p>
-                                    </div>
-                                    <button class="delete" onclick="XoaChon()">Xóa chọn</button>  
+                                    </div>  -->
                                 </div>
                             </div>
                         </div>
@@ -222,11 +217,32 @@
     </div>
 
 
-
-
-
-
     <script>
+        const UpdateClick = () => {
+        var table = document.getElementById('table');    
+        for(var i = 1; i < table.rows.length; i++)
+        {
+                table.rows[i].onclick = function()
+                {
+                            //rIndex = this.rowIndex;
+                            document.getElementById("loaisp").value = this.cells[4].innerHTML;
+                            document.getElementById("masp").value = this.cells[0].innerHTML;
+                            document.getElementById("tensp").value = this.cells[1].innerHTML;
+                            document.getElementById("soluong").value = this.cells[2].innerHTML;
+                            document.getElementById("gia").value = this.cells[3].innerHTML;
+                            document.getElementById("size").value = this.cells[5].innerHTML;
+                            document.getElementById("color").value = this.cells[6].innerHTML;
+                };
+        }
+
+    }
+
+    </script>
+    
+
+
+
+    <!-- <script>
         const editClick = () => {
 
         var table = document.getElementById('table');    
@@ -246,11 +262,11 @@
         }
     }
     
-    </script>
+    </script> -->
 
     
 
-    <script>
+    <!-- <script>
         var list = JSON.parse(localStorage.getItem('sanpham')) || [];
         function addsp(){
             var loaisp = document.getElementById('loaisp').value;
@@ -432,6 +448,6 @@
             
         }
 
-    </script>
+    </script> -->
 </body>
 </html>

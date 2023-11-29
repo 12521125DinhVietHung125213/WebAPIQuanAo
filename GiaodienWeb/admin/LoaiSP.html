@@ -95,24 +95,25 @@
                                     <div class="info-product-title">
                                         <h3><i class="fa-solid fa-boxes-stacked icons-nav"></i>Nhập thông tin loại sản phẩm</h3>
                                     </div>
-                                    <form action="">
+                                    <form >
                                         <div class="ma-product">
                                             <label for="">Mã danh mục:</label><br>
-                                            <input type="text" placeholder="Nhập mã loại sản phẩm..." id="maproduct">
+                                            <input ng-model = "lsp.maDanhMuc" type="text" placeholder="Nhập mã loại sản phẩm..." id="maDanhMuc">
                                         </div>
                                         <div class="name-product">
                                             <label for="">Danh mục cha:</label><br>
-                                            <input type="text" placeholder="Nhập tên loại sản phẩm..." id="nameproduct">
+                                            <input ng-model = "lsp.danhMucCha" type="text" placeholder="Nhập tên loại sản phẩm..." id="danhMucCha">
                                         </div>
                                         <div class="name-product">
                                             <label for="Tên danh mục">:</label><br>
-                                            <input type="text" placeholder="Nhập tên loại sản phẩm..." id="nameproduct">
+                                            <input ng-model = "lsp.tenDanhMuc" type="text" placeholder="Nhập tên loại sản phẩm..." id="tenDanhMuc">
                                         </div>
                                         <hr style="width: 95%; margin-top: 20px;margin-bottom: 20px; background: #4B7BE5; height: 2px;">
                                         <div class="btn-product">
-                                            <button class="add-product" onclick="addproduct()" >Thêm loại sản phẩm</button>
-                                            <button class="nhap-product" onclick="Nhapmoi()">Nhập mới</button>
-                                            <button class="update-product" onclick="capnhap()">Cập nhập thông tin</button>
+                                            <input type="button" ng-click="addLSP()" class="add-product"  value="{{btnlsp}}" />
+                                            
+                                            <input type="button" ng-click="updateLSP(lsp.maDanhMuc)" class="update-product"  value="{{btntextlspud}}" />
+                                            
                                         </div>
                                     </form>
                                 </div>
@@ -126,47 +127,33 @@
                                     <button><i class="fa-solid fa-magnifying-glass" style="margin-right: 5px;"></i>Tìm kiếm</button>
                                 </div>
                                 <div class="table">
-                                    <table>
+                                    <table id = "tablelsp">
                                         <thead>
                                             <tr>
                                                 <th>Mã danh mục</th>
                                                 <th>Danh mục cha</th>
                                                 <th>Tên danh mục</th>
-
                                                 <th>Thao tác</th>
                                             </tr>
-                                            <tr ng-repeat ="x in listMenu">
-                                                <th>{{x.maDanhMuc}}</th>
-                                                <th>{{x.danhMucCha}}</th>
-                                                <th>{{x.tenDanhMuc}}</th>
+                                            <tr ng-repeat ="Lsp in listLoaiSP">
+                                                <td>{{Lsp.maDanhMuc}}</td>
+                                                <td>{{Lsp.danhMucCha}}</td>
+                                                <td>{{Lsp.tenDanhMuc}}</td>
+                                                <td>
+                                                    <input type="button"  onclick="UpdateLSPClick()" value="Update">
+                                                    <input type="button" ng-click = DeleteLSP(Lsp.maDanhMuc) value="Delete">
+                                                </td>
                                                 
                                             </tr>
                                         </thead>
-                                        <tbody id="listproduct"></tbody>
-                                            <!-- <tr>
-                                                <td>01</td>
-                                                <td>Điện thoại</td>
-                                                <td>
-                                                <i class="fas fa-trash-alt" title="Xóa"></i>
-                                                </td>
-                                            </tr> -->
+                                    
                                         
                                     </table>
                                 </div>
-                                <!-- <form action="">
-                                    <div class="list-product-item">
-                                        <div class="input-check">
-                                            <input type="checkbox">
-                                        </div>
-                                        <p>Mã loại sản phẩm</p>
-                                        <p>Tên loại sản phẩm</p>
-                                        <p>Thao tác</p>
-                                    </div>
-                                </form> -->
+                               
                                 <div class="statistics">
                                     <span>Số lượng loại sản phẩm: <span id="sl">0</span></span>
                                 </div>
-                                <button class="delete" onclick="XoaChon()">Xóa chọn</button>
                             </div>
                         </div>
                     </div>
@@ -174,7 +161,32 @@
             </div>
         </section>
     </div>
+
     <script>
+        const UpdateLSPClick = () => {
+        var table = document.getElementById('tablelsp');    
+        for(var i = 1; i < tablelsp.rows.length; i++)
+        {
+            tablelsp.rows[i].onclick = function()
+                {
+                            //rIndex = this.rowIndex;
+                            document.getElementById("maDanhMuc").value = this.cells[0].innerHTML;
+                            document.getElementById("danhMucCha").value = this.cells[1].innerHTML;
+                            document.getElementById("tenDanhMuc").value = this.cells[2].innerHTML;
+
+                };
+        }
+    }
+    </script>
+    
+
+
+
+
+
+
+    
+    <!-- <script>
         var list = JSON.parse(localStorage.getItem('TypeProduct')) || [];
         function addproduct(){
             var number = /^[0-9]+$/;
@@ -304,6 +316,6 @@
             
         }
 
-    </script>
+    </script> -->
 </body>
 </html>

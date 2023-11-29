@@ -52,7 +52,7 @@ namespace DataAccessLayer
                    "sp_khach_create",
                "@TenKhachHang", model.TenKhachHang,
                "@GioiTinh", model.GioiTinh,
-               "@Sđt", model.Sdt,
+               "@Sdt", model.Sdt,
                "@DiaChi", model.DiaChi,
                "@Email", model.Email);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
@@ -77,7 +77,7 @@ namespace DataAccessLayer
                 "@makhachhang" ,model.MaKhachHang,
                 "@tenKhachHang", model.TenKhachHang,
                 "@gioiTinh", model.GioiTinh,
-                "@sđt", model.Sdt,
+                "@sdt", model.Sdt,
                 "@diaChi", model.DiaChi,
                 "@email", model.Email);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))

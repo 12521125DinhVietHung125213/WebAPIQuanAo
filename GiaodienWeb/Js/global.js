@@ -1,1 +1,1 @@
-var current_url = "https://localhost:44306";
+var current_url = "https://localhost:44306/";

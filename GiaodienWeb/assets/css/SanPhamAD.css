@@ -302,3 +302,13 @@ td{
     text-align: center;
 }
 
+.update-sanpham{
+    background-color: rgb(182, 233, 130);
+    cursor: pointer;
+    
+}
+
+.delete-sanpham{
+    background-color: #FF6363;
+}
+

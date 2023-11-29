@@ -13,7 +13,7 @@ namespace BusinessLogicLayer
         List<DanhMucModel> GetAll();
         bool Create(DanhMucModel model);
         bool Update(DanhMucModel model);
-        bool Delete(DanhMucModel model);
+        bool Delete(string MaDanhMuc);
         public List<DanhMucModel> Search(int pageIndex, int pageSize, out long total, string DanhMucCha, string TenDanhMuc);
 
     }

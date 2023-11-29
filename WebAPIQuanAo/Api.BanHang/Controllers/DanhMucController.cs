@@ -48,10 +48,10 @@ namespace Api.BanHang.Controllers
 
         [Route("Delete-DanhMuc")]
         [HttpDelete]
-        public DanhMucModel DeleteItem([FromBody] DanhMucModel model)
+        public IActionResult DeleteItem(string MaDanhMuc)
         {
-            _danhMucBusiness.Delete(model);
-            return model;
+            _danhMucBusiness.Delete(MaDanhMuc);
+            return Ok(new { message = "Xóa thành công" });
         }
 
         [Route("Search-DanhMuc")]

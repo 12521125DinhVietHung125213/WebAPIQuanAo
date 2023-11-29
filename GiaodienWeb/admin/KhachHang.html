@@ -98,27 +98,27 @@
                                     <form action="">
                                         <div class="input">
                                             <label for="">Mã khách hàng:</label><br>
-                                            <input type="text" placeholder="Nhập mã khách hàng..." id="makh">
+                                            <input type="text" ng-model = "khach.maKhachHang" placeholder="Nhập mã khách hàng..." id="makh">
                                         </div>
                                         <div class="input">
                                             <label for="">Tên khách hàng:</label><br>
-                                            <input type="text" placeholder="Nhập tên khách hàng..." id="tenkh">
+                                            <input type="text" ng-model = "khach.tenKhachHang" placeholder="Nhập tên khách hàng..." id="tenkh">
                                         </div>
                                         <div class="input">
                                             <label for="">Giới tính:</label><br>
-                                            <input type="text" placeholder="Nhập giới tính khách hàng..." id="gioiTinh">
+                                            <input type="text" ng-model = "khach.gioiTinh" placeholder="Nhập giới tính khách hàng..." id="gioiTinh">
                                         </div>
                                         <div class="input">
                                             <label for="">Số điện thoại:</label><br>
-                                            <input type="text" placeholder="Nhập số điện thoại khách hàng..." id="sdt">
+                                            <input type="text" ng-model = "khach.sdt" placeholder="Nhập số điện thoại khách hàng..." id="sdt">
                                         </div>
                                         <div class="input">
                                             <label for="">Email:</label><br>
-                                            <input type="email" placeholder="Nhập email khách hàng..." id="email">
+                                            <input type="email" ng-model = "khach.email" placeholder="Nhập email khách hàng..." id="email">
                                         </div>
                                         <div class="input">
                                             <label for="">Địa chỉ:</label><br>
-                                            <input type="text" placeholder="Nhập địa chỉ khách hàng..." id="diachi">
+                                            <input type="text" ng-model = "khach.diaChi" placeholder="Nhập địa chỉ khách hàng..." id="diachi">
                                         </div>
                                         <!-- <div class="input">
                                             <label for="">Mật khẩu:</label><br>
@@ -127,9 +127,8 @@
                                     </form>
                                     <hr style="margin-top: 20px; margin-bottom: 20px; background: #4B7BE5;">
                                     <div class="btn-product">
-                                        <button class="add-product" onclick="ThemKH()">Thêm khách hàng</button>
-                                        <button class="nhap-product" onclick="Nhapmoi()">Nhập mới</button>
-                                        <button class="update-product" onclick="CapNhap()">Cập nhập thông tin</button>
+                                        <input type="button" class="add-product" ng-click="addkhach(khach.maKhachHang)" value="{{btntextkh}}"></input>
+                                        <input type="button" class="update-product" ng-click="updateKh()" value="{{btnudkh}}"></input>
 
                                         
                                     </div>
@@ -156,7 +155,7 @@
                                     </div> -->
                                     <div class="table">
                                         <table>
-                                            <thead>
+                                            <thead id = "tablekh">
                                                 <tr>
                                                     <th>Mã khách hàng</th>
                                                     <th>Tên khách hàng</th>
@@ -164,25 +163,26 @@
                                                     <th>Giới tính</th>
                                                     <th>Địa chỉ</th>
                                                     <th>Email</th>
+                                                    <th>Thao tác</th>
                                                     
                                                 </tr>
 
-                                                <tr ng-repeat ="x in listMenu">
-                                                    <th>{{x.maKhachHang}}</th>
-                                                    <th>{{x.tenKhachHang}}</th>
-                                                    <th>{{x.sdt}}</th>
-                                                    <th>{{x.gioiTinh === "True" ? "Nam": "Nữ"}}</th>
-                                                    <th>{{x.diaChi}}</th>
-                                                    <th>{{x.email}}</th>
+                                                <tr ng-repeat ="kh in listKhach">
+                                                    <th>{{kh.maKhachHang}}</th>
+                                                    <th>{{kh.tenKhachHang}}</th>
+                                                    <th>{{kh.sdt}}</th>
+                                                    <th>{{kh.gioiTinh === "True" ? "Nam": "Nữ"}}</th>
+                                                    <th>{{kh.diaChi}}</th>
+                                                    <th>{{kh.email}}</th>
+                                                    <td>
+                                                    <input type="button"  onclick="UpdatekhClick()" value="Update">
+                                                    <input type="button" ng-click = Deletekh(kh.maKhachHang) value="Delete">
+                                                    </td>
                                                 </tr>
                                             </thead>
                                            
                                         </table>
-                                    </div>
-                                    <div class="col8-info-thongke">
-                                        <p>Số lượng khách hàng: <span id="sl"></span></p>
-                                    </div>
-                                    <button class="delete" onclick="XoaChon()">Xóa chọn</button>  
+                                    </div> 
                                 </div>
                             </div>
                         </div>
@@ -192,6 +192,26 @@
         </section>
     </div>
 
+    <script>
+        const UpdatekhClick = () => {
+        var table = document.getElementById('tablekh');    
+        for(var i = 1; i < table.rows.length; i++)
+        {
+                table.rows[i].onclick = function()
+                {
+                            //rIndex = this.rowIndex;
+                            document.getElementById("diachi").value = this.cells[4].innerHTML;
+                            document.getElementById("makh").value = this.cells[0].innerHTML;
+                            document.getElementById("tenkh").value = this.cells[1].innerHTML;
+                            document.getElementById("sdt").value = this.cells[2].innerHTML;
+                            document.getElementById("gioiTinh").value = this.cells[3].innerHTML;
+                            document.getElementById("email").value = this.cells[5].innerHTML;
+                };
+        }
+
+    }
+
+    </script>
     
 </body>
 </html>

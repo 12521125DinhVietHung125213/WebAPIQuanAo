@@ -96,13 +96,13 @@ namespace DataAccessLayer
             }
         }
 
-        public bool Delete(SanPhamModel model)
+        public bool Delete(string MaSanPham)
         {
             string msgError = "";
             try
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_SanPham_delete",
-                "@MaSanPham", model.MaSanPham);
+                "@MaSanPham", MaSanPham);
                 ;
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {

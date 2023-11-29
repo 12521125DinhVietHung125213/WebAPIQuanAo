@@ -33,9 +33,9 @@ namespace BusinessLogicLayer
             return _res.Update(model);
         }
 
-        public bool Delete(SanPhamModel model)
+        public bool Delete(string MaKhachHang)
         { 
-            return _res.Delete(model); 
+            return _res.Delete(MaKhachHang); 
         }
         public List<SanPhamModel> SearchTheoGia(int pageIndex, int pageSize, out long total, int giaMax, int giaMin)
         {
