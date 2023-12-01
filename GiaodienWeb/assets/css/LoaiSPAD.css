@@ -18,7 +18,7 @@ body{
     --darkgray-color: #ccc;
 }
 .grid{
-    width: 1200px;
+    width: 1500px;
     max-width: 100%;
     margin: 0 auto;
 }
@@ -27,17 +27,17 @@ body{
     flex-wrap: wrap;
 }
 .grid__col1{
-    width: 16.66667%;
+    width: 14.66667%;
 }
 .grid__col11{
-    width: 83.33333%;
+    width: 85.33333%;
 }
 .grid__col11-col4{
-    width: 41.66667%;
+    width: 31.66667%;
     /* width: 33.33333%; */
 }
 .grid__col11-col8{
-    width: 58.33333%;
+    width: 48.33333%;
     /* width: 66.66667%; */
 }
 .header{
@@ -120,9 +120,7 @@ body{
     background: var(--black-color);
     cursor: pointer;
 }
-.grid__col11-col4{
-    /* margin-left: 10px; */
-}
+
 .info-product{
     margin-left: 10px;
     margin-right: 10px;
@@ -302,4 +300,14 @@ td{
     border-collapse: collapse;
     border: 1px solid darkgray;
     text-align: center;
+}
+
+.update-sanpham{
+    border: none;
+    cursor: pointer;
+}
+
+.delete-sanpham{
+    border: none;
+    cursor: pointer;
 }

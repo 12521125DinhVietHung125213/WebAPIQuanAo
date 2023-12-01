@@ -53,9 +53,7 @@ h2{
     /* margin-right: 0; */
     flex: 3;
 }
-.grid__footer-h2{
-    
-}
+
 .grid__footer-btn{
     background-color: var(--text-color);
     border: none;

@@ -32,6 +32,20 @@ app.controller("KhachCtrl", function ($scope, $http) {
         
     }
     $scope.LoadKhach();
+
+
+    
+    $scope.GetbyIDKH = function (idkh){
+        $http({
+            method : 'GET',
+            url : current_url + 'api/Khach/get-by-id/' +idkh,
+
+        }).then (function(response){
+            debugger;
+            
+            $scope.listKhach= [response.data];
+        })
+    };
     
     $scope.btnudkh = "Cập nhật sản phẩm"
     $scope.updateKh  = function (){
@@ -55,6 +69,8 @@ app.controller("KhachCtrl", function ($scope, $http) {
 
     };
 
+
+
     $scope.Deletekh = function(maKhachHang){
         $http({
             method: 'Delete',
@@ -72,6 +88,12 @@ app.controller("KhachCtrl", function ($scope, $http) {
     }
 
 
+    var idkh = document.getElementById ('getbyidkh')
 
+      var btnSearch = document.querySelector('button.btn-search')
+      btnSearch.onclick = ()=> {
+          console.log(idkh.value);
+        $scope.GetbyIDKH(idkh.value)
+      }
 
 });

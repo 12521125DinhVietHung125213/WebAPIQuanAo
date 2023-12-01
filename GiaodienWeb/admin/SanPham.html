@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../assets/fontawesome-free-6.0.0-web/css/all.min.css">
     <script src="../Js/angular.min.js"></script>
     <script src="../Js/global.js"></script>
-    <script src="../Js/Sanpham.js"></script>
+    <script src="../assets/js/SanPhamQuanTri.js"></script>
     <title>Document</title>
 </head>
 <body ng-app="AppQuanTri" ng-controller="CtrlSanPham">
@@ -57,28 +57,19 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../admin/NhaCungCap.html" class="nav-link">
-                                    <i class="fa-solid fa-truck icons-nav"></i>Nhà cung cấp
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="../admin/KhachHang.html" class="nav-link">
                                     <i class="fa-solid fa-users icons-nav"></i>Khách hàng
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="../admin/HoaDonNhap.html" class="nav-link">
-                                    <i class="fa-solid fa-file-import icons-nav"></i>Tài Khoản
-                                </a>
-                            </li>
+
                             <li class="nav-item">
                                 <a href="../admin/HoaDonBan.html" class="nav-link">
                                     <i class="fa-solid fa-cart-shopping icons-nav"></i>Hóa đơn bán
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="fa-solid fa-newspaper icons-nav"></i>Tin tức
+                                <a href="../admin/TaiKhoan.html" class="nav-link">
+                                    <i class="fa-solid fa-newspaper icons-nav"></i>Tài khoản
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -102,7 +93,7 @@
                                         </div>
                                         <div  class="input">
                                             <label for="">Mã sản phẩm:</label><br>
-                                            <input ng-model="Sp.maSanPham" type="text" id="masp"  placeholder="Nhập mã sản phẩm...">
+                                            <input ng-model="Sp.maSanPham" type="text" id="masp"  placeholder="Mã sản phẩm tự tăng...">
                                         </div>
                                         <div  class="input">
                                             <label for="">Tên sản phẩm:</label><br>
@@ -127,8 +118,8 @@
                                         <hr style="margin-top: 20px; margin-bottom: 20px; background: #4B7BE5;">
                                         <div class="btn-product">
                                         
-                                            <input type="button" ng-click="insertData()" class="add-product" value="{{btntext}}"  /> 
-                                            <input type="button" ng-click="updateSP(Sp.maSanPham)" class="update-product" value="{{btntextud}}"  ></input>
+                                            <input type="button" class="add-product" ng-click="insertData()"  value="{{btntext}}"  > 
+                                            <input type="button" class="update-product"  ng-click="updateSP(Sp.maSanPham)" value="{{btntextud}}"  ></input>
     
                                         </div>
                                         
@@ -139,43 +130,38 @@
                             </div>
                             <div class="grid__col11-col8">
                                 <div class="col8-title">
-                                    <h3><i class="fa-solid fa-barcode icons-nav"></i>Danh sách sản phẩm</h3>
+                                    <h3 ><i class="fa-solid fa-barcode icons-nav"></i>Danh sách sản phẩm</h3>
                                 </div>
                                 <div class="col8-info">
                                     <div class="col8-input">
-                                        <input type="text" placeholder="Nhập mã sản phẩm hoặc tên">
+                                        <input id ="getbyidsp" type="text" placeholder="Nhập mã sản phẩm hoặc tên">
                                         <select name="" id="">
-                                            <option value="choose">--Chọn loại sản phẩm--</option>
-                                            <optgroup label="Điện thoại"></optgroup>
-                                            <option value="Điện thoại">--Chọn loại sản phẩm--</option>
-                                            <option value="Điện thoại">Iphone 7 plus</option>
-                                            <option value="Điện thoại">Oppo A37</option>
-                                            <option value="Điện thoại">Xiaomi Redmi Note 11</option>
-                                            <option value="Điện thoại">IP XS Max</option>
-                                            <option value="Điện thoại">SamSung Galaxy S22</option>
-                                            <optgroup label="Tai nghe"></optgroup>
-                                            <option value="Tai nghe">Bluetooth AirPods 3 Apple MME73</option>
-                                            <option value="Tai nghe">Bluetooth True Wireless OPPO ENCO </option>
-                                            <option value="Tai nghe">Bluetooth Chụp tai Kannen K6</option>
-                                            <option value="Tai nghe">Mozard Flex4</option>
-                                            <option value="Tai nghe">Bluetooth 1 Bên Mozard</option>
-                                            <optgroup label="Sạc"></optgroup>
-                                            <option value="Sạc">AVA + LJ JP199</option>
-                                            <option value="Sạc">Xmobile Gram 6S </option>
-                                            <option value="Sạc">OPPO PBT02</option>
+                                            <option value="choose">Chọn loại sản phẩm tìm kiếm</option>
+                                            <optgroup label="Áo"></optgroup>
+                                            <option value="Áo">Áo khoác lông</option>
+                                            <option value="Áo">Áo len cổ lọ</option>
+                                            <option value="Áo">Áo dữ nhiệt</option>
+                                            <optgroup label="Quần"></optgroup>
+                                            <option value="Quần">Quần Jeans</option>
+                                            <option value="Quần">Quần vải </option>
+                                            <option value="Quần">Quần nỉ</option>
+                                            <optgroup label="Khăn"></optgroup>
+                                            <option value="Khăn len">AVA + LJ JP199</option>
+
                                         </select>
                                         <select name="" id="" class="seclectncc">
-                                            <option value="Chọn nhà cung cấp">--Chọn kích cỡ--</option>
-                                            <option value="Appel">Apple</option>
-                                            <option value="SamSung">SamSung</option>
-                                            <option value="OPPO">OPPO</option>
-                                            <option value="Xiaomi">Xiaomi</option>
+                                            <option value="Size">Chọn kích cỡ</option>
+                                            <option value="Size">XL</option>
+                                            <option value="Size">X</option>
+                                            <option value="Size">M</option>
+                                            <option value="Size">L</option>
+                                            <option value="Size">S</option>
                                         </select>
                                         <button class="btn-search"><i class="fa-solid fa-magnifying-glass" style="margin-right: 5px;"></i>Tìm kiếm</button>
                                     </div>
                                     <div  class="table">
 
-                                        <table id="table" >
+                                        <table id="table">
                                             <thead>
                                                 <tr>
                                                     <th>Mã Sản Phẩm</th>
@@ -185,7 +171,7 @@
                                                     <th>Loại sản phẩm</th>
                                                     <th>Kích cỡ</th>
                                                     <th>Màu sắc</th>
-                                                    <th>Action</th>
+                                                    <th>Thao tác</th>
                                                 </tr>
                                                 <tr ng-repeat="sp in SPlist">
                                                     <td>{{sp.maSanPham}}</td>
@@ -195,9 +181,11 @@
                                                     <td>{{sp.maDanhMuc}}</td>
                                                     <td>{{sp.size}}</td> 
                                                     <td>{{sp.mauSac}}</td>
+                                                   
+                                                    
                                                     <td>
-                                                        <input type="button" class="update-sanpham"   onclick="UpdateClick()" value="Update">
-                                                        <input type="button" class="delete-sanpham" ng-click = DeleteSP(sp.maSanPham) value="Delete">
+                                                        <button class="update-sanpham" onclick="UpdateClick()"> <i class="fa-solid fa-pen-to-square fa-lg"></i></button>
+                                                        <button class="delete-sanpham" ng-click = DeleteSP(sp.maSanPham) > <i class="fa-solid fa-trash-can fa-lg"></i></button>
                                                     </td>
                                                 </tr>
                                             </thead>

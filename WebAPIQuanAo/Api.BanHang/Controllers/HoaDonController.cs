@@ -21,6 +21,12 @@ namespace Api.BanHang.Controllers
         {
             return _hoadonBusiness.GetDatabyID(MaHoaDon);
         }
+        [Route("get-all")]
+        [HttpGet]
+        public List<HoaDonModelGetAll> GetAll()
+        {
+            return _hoadonBusiness.GetAll();
+        }
 
         [Route("create-hoadon")]
         [HttpPost]

@@ -57,18 +57,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../admin/NhaCungCap.html" class="nav-link">
-                                    <i class="fa-solid fa-truck icons-nav"></i>Nhà cung cấp
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="../admin/KhachHang.html" class="nav-link">
                                     <i class="fa-solid fa-users icons-nav"></i>Khách hàng
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../admin/HoaDonNhap.html" class="nav-link">
-                                    <i class="fa-solid fa-file-import icons-nav"></i>Tài Khoản
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -77,8 +67,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="fa-solid fa-newspaper icons-nav"></i>Tin tức
+                                <a href="../admin/TaiKhoan.html" class="nav-link">
+                                    <i class="fa-solid fa-newspaper icons-nav"></i>Tài khoản
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -98,7 +88,7 @@
                                     <form action="">
                                         <div class="input">
                                             <label for="">Mã khách hàng:</label><br>
-                                            <input type="text" ng-model = "khach.maKhachHang" placeholder="Nhập mã khách hàng..." id="makh">
+                                            <input type="text" ng-model = "khach.maKhachHang" placeholder="Mã khách hàng tự tăng..." id="makh">
                                         </div>
                                         <div class="input">
                                             <label for="">Tên khách hàng:</label><br>
@@ -120,10 +110,6 @@
                                             <label for="">Địa chỉ:</label><br>
                                             <input type="text" ng-model = "khach.diaChi" placeholder="Nhập địa chỉ khách hàng..." id="diachi">
                                         </div>
-                                        <!-- <div class="input">
-                                            <label for="">Mật khẩu:</label><br>
-                                            <input type="password" placeholder="Nhập mật khẩu khách hàng...">
-                                        </div> -->
                                     </form>
                                     <hr style="margin-top: 20px; margin-bottom: 20px; background: #4B7BE5;">
                                     <div class="btn-product">
@@ -140,26 +126,16 @@
                                 </div>
                                 <div class="col8-info">
                                     <div class="col8-input">
-                                        <input type="text" placeholder="Nhập mã , tên, số điện thoại khách hàng" style="width: 70%;padding: 0 10px; height: 40px; margin-top: 10px;">
+                                        <input type="text" id = "getbyidkh" placeholder="Nhập mã , tên, số điện thoại khách hàng" style="width: 70%;padding: 0 10px; height: 40px; margin-top: 10px;">
                                         <button class="btn-search"><i class="fa-solid fa-magnifying-glass" style="margin-right: 5px;"></i>Tìm kiếm</button>
                                     </div>
-                                    <!-- <div class="col8-info-list">
-                                        
-                                        <p style="text-align: center;">Mã khách hàng</p>
-                                        <p style="text-align: center;">Tên khách hàng</p>
-                                        <p style="text-align: center;">Số điện thoại</p>
-                                        <p style="text-align: center;">Email</p>
-                                        <p style="text-align: center;">Địa chỉ </p>
-                                        <p style="text-align: center;">Thao tác</p>
-                                        
-                                    </div> -->
                                     <div class="table">
                                         <table>
                                             <thead id = "tablekh">
                                                 <tr>
                                                     <th>Mã khách hàng</th>
                                                     <th>Tên khách hàng</th>
-                                                    <th>Giới tính</th>
+                                                    <th>Số điện thoại</th>
                                                     <th>Giới tính</th>
                                                     <th>Địa chỉ</th>
                                                     <th>Email</th>
@@ -168,15 +144,15 @@
                                                 </tr>
 
                                                 <tr ng-repeat ="kh in listKhach">
-                                                    <th>{{kh.maKhachHang}}</th>
-                                                    <th>{{kh.tenKhachHang}}</th>
-                                                    <th>{{kh.sdt}}</th>
-                                                    <th>{{kh.gioiTinh === "True" ? "Nam": "Nữ"}}</th>
-                                                    <th>{{kh.diaChi}}</th>
-                                                    <th>{{kh.email}}</th>
+                                                    <td>{{kh.maKhachHang}}</td>
+                                                    <td>{{kh.tenKhachHang}}</td>
+                                                    <td>{{kh.sdt}}</td>
+                                                    <td>{{kh.gioiTinh === "True" ? "Nam": "Nữ"}}</td>
+                                                    <td>{{kh.diaChi}}</td>
+                                                    <td>{{kh.email}}</td>
                                                     <td>
-                                                    <input type="button"  onclick="UpdatekhClick()" value="Update">
-                                                    <input type="button" ng-click = Deletekh(kh.maKhachHang) value="Delete">
+                                                        <button class="update-sanpham" onclick="UpdatekhClick()"> <i class="fa-solid fa-pen-to-square fa-lg"></i></button>
+                                                        <button class="delete-sanpham" ng-click="Deletekh(kh.maKhachHang)"><i class="fa-solid fa-trash-can fa-lg"></i> </button>
                                                     </td>
                                                 </tr>
                                             </thead>

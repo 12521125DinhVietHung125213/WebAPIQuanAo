@@ -15,6 +15,10 @@ namespace BusinessLogicLayer
         {
             return _res.GetDatabyID(id);
         }
+        public List<HoaDonModelGetAll> GetAll()
+        {
+            return _res.GetAll();
+        }
         public bool Create(HoaDonModel model)
         {
             return _res.Create(model);

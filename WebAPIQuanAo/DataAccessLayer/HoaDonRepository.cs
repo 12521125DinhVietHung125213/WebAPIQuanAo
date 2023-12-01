@@ -16,11 +16,11 @@ namespace DataAccessLayer
             {
                 var xxx = model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null;
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_hoadon_create",
-                "@TenKH", model.TenKH,
-                "@Diachi", model.Diachi,
+                "@TenKH", model.TenKhachHang,
+                "@Diachi", model.DiaChiGiaoHang,
                 "@TrangThai", model.TrangThai,
                 "@NgayTao",model.Ngaytao,
-                "@Sđt",model.Sđt,
+                "@Sdt",model.Sdt,
                 "@list_json_chitiethoadon", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
@@ -58,11 +58,11 @@ namespace DataAccessLayer
                 var xxx = model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null;
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_hoa_don_update",
                 "@MaHoaDon",model.MaHoaDon,
-                "@TenKH", model.TenKH,
-                "@Diachi", model.Diachi,
+                "@TenKH", model.TenKhachHang,
+                "@Diachi", model.DiaChiGiaoHang,
                 "@TrangThai", model.TrangThai,
                 "@NgayTao", model.Ngaytao,
-                "@Sđt", model.Sđt,
+                "@Sđt", model.Sdt,
                 "@list_json_chitiethoadon", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
@@ -118,15 +118,15 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
-        public List<HoaDonModel> GetAll()
+        public List<HoaDonModelGetAll> GetAll()
         {
             string msgErrror = "";
             try
             {
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgErrror, "sp_Khach_get_all");
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgErrror, "sp_HoaDon_get_all");
                 if (!string.IsNullOrEmpty(msgErrror))
                     throw new Exception(msgErrror);
-                return dt.ConvertTo<HoaDonModel>().ToList();
+                return dt.ConvertTo<HoaDonModelGetAll>().ToList();
             }
             catch (Exception ex)
             {

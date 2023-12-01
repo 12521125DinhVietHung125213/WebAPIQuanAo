@@ -22,7 +22,7 @@ namespace Api.BanHang.Controllers
             var user = _taiKhoanBusiness.Login(model.TenTaiKhoan, model.MatKhau);
             if (user == null)
                 return BadRequest(new { message = "Tài khoản hoặc mật khẩu không đúng!" });
-            return Ok(new { message = "Đăng nhập thành công", taikhoan = user.TenTaiKhoan, token = user.token });
+            return Ok(new { message = "Đăng nhập thành công", taikhoan = user.TenTaiKhoan/*, token = user.token*/ });
         }
 
         [Route("get-by-id/{MaTaiKhoan}")]
@@ -48,6 +48,12 @@ namespace Api.BanHang.Controllers
             return model;
         }
 
+        [Route("taikhoan-getall")]
+        [HttpGet]
+        public List<TaiKhoanModel> GetAll()
+        {
+            return _taiKhoanBusiness.GetAll();
+        }
 
 
         [Route("Delete-taikhoan")]

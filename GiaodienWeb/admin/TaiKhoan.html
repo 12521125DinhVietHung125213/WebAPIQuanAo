@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/SanPhamAD.css">
+    <link rel="stylesheet" href="../assets/fontawesome-free-6.0.0-web/css/all.min.css">
+    <script src="../Js/angular.min.js"></script>
+    <script src="../Js/global.js"></script>
+    <script src="../Js/taikhoan.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="AppQuanTri" ng-controller ="CtrlTaiKhoan">
+    <div class="main">
+        <header class="header">
+            <div class="grid">
+                <div class="grid__row header-grid">
+                    <div class="welcome">
+                        <p class="welcome-text">Xin chào<i class="fa-solid fa-sort-down"></i></p>
+                        <div class="info">
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-user "></i>Tài khoản
+                                    </a>
+                                </li>
+                                <li class="info-item">
+                                    <a href="#" class="info-link">
+                                        <i class="fa-solid fa-right-from-bracket"></i>Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="content">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__col1">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-dumpster icons-nav"></i>Tổng quan
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/LoaiSP.html" class="nav-link">
+                                    <i class="fa-solid fa-boxes-stacked icons-nav"></i>Loại sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/SanPham.html" class="nav-link">
+                                    <i class="fa-solid fa-barcode icons-nav"></i>Sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/KhachHang.html" class="nav-link">
+                                    <i class="fa-solid fa-users icons-nav"></i>Khách hàng
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/HoaDonBan.html" class="nav-link">
+                                    <i class="fa-solid fa-cart-shopping icons-nav"></i>Hóa đơn bán
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/TaiKhoan.html" class="nav-link">
+                                    <i class="fa-solid fa-newspaper icons-nav"></i>Tài khoản
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa-solid fa-gear icons-nav"></i>Thiết lập
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__col11">
+                        <div class="grid__row">
+                            <div class="grid__col11-col4">
+                                <div class="col4-infoadmin">
+                                    <div class="col4-infoadmin-title">
+                                        <h3><i class="fa-solid fa-truck"></i>Nhập thông tin nhà cung cấp</h3>
+                                    </div>
+                                    <form action="">
+                                        <div class="input">
+                                            <label for="">Mã tài khoản:</label><br>
+                                            <input ng-model ="tk.maTaiKhoan" type="text" placeholder="Nhập mã tài khoản..." id="matk">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Loại tài khoản:</label><br>
+                                            <input ng-model ="tk.loaiTaiKhoan" type="text" placeholder="Nhập mã loại tài khoản..." id ="maloaitk">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Tên tài khoản:</label><br>
+                                            <input ng-model ="tk.tenTaiKhoan" type="text" placeholder="Nhập tên tài khoản..." style="border: 1px solid;" id="tentaikhoan">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Mật khẩu:</label><br>
+                                            <input ng-model ="tk.matKhau" type="text" placeholder="Nhập mật khẩu..." id="mk">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Số điện thoại:</label><br>
+                                            <input ng-model ="tk.sdt" type="text" placeholder="Nhập số điện thoại..." id ="sdt">
+                                        </div>
+                                        <div class="input">
+                                            <label for="">Email:</label><br>
+                                            <input ng-model ="tk.email" type="text" placeholder="Nhập Email..." id ="Email">
+                                        </div>
+                                    </form>
+                                    <hr style="margin-top: 20px; margin-bottom: 20px; background: #4B7BE5;">
+                                    <div class="btn-product">
+                                        <input type="button" class="add-product" ng-click="insertTkhoan()" value="{{btntexttk}}"/>
+                                        <input type="button" class="update-product" ng-click="UpdateTk(tk.maTaiKhoan)" value="{{btnupdatetk}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid__col11-col8">
+                                <div class="col8-title">
+                                    <h3><i class="fa-solid fa-truck"></i>Danh sách nhà cung cấp</h3>
+                                </div>
+                                <div class="col8-info">
+                                    <div class="col8-input">
+                                        <input type="text" id="idtk" placeholder="Nhập mã hoặc tên tài khoản" style="width: 70%;padding: 0 10px; height: 40px; margin-top: 10px;">
+                                        <button class="btn-search"><i class="fa-solid fa-magnifying-glass" style="margin-right: 5px;"></i>Tìm kiếm</button>
+                                    </div>
+                                    <div class="table">
+                                        <table>
+                                            <thead id =tabletk>
+                                                <tr>
+                                                    <th>Mã tài khoản</th>
+                                                    <th>Loại tài khoản</th>
+                                                    <th>Tên tài khoản</th>
+                                                    <th>Mật khẩu</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Email</th>
+                                                    <th>Thao tác</th>
+                                                </tr>
+                                                <tr ng-repeat="tk in listAccount">
+                                                   <td>{{tk.maTaiKhoan}}</td>
+                                                   <td>{{tk.loaiTaiKhoan}}</td>
+                                                   <td>{{tk.tenTaiKhoan}}</td>
+                                                   <td>{{tk.matKhau}}</td>
+                                                   <td>{{tk.sdt}}</td>
+                                                   <td>{{tk.email}}</td>
+                                                   
+                                                    <td>
+                                                        <button class="update-sanpham" onclick="UpdatetkClick()"> <i class="fa-solid fa-pen-to-square fa-lg"></i> </button>
+                                                        <button  class="delete-sanpham" ng-click = DeleteTK(tk.maTaiKhoan)><i class="fa-solid fa-trash-can fa-lg"></i> </button>
+                                                    </td>
+                                                   
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const UpdatetkClick = () => {
+        var table = document.getElementById('tabletk');    
+        for(var i = 1; i < table.rows.length; i++)
+        {
+                table.rows[i].onclick = function()
+                {
+                            //rIndex = this.rowIndex;
+                            document.getElementById("matk").value = this.cells[0].innerHTML;
+                            document.getElementById("maloaitk").value = this.cells[1].innerHTML;
+                            document.getElementById("tentaikhoan").value = this.cells[2].innerHTML;
+                            document.getElementById("mk").value = this.cells[3].innerHTML;
+                            document.getElementById("sdt").value = this.cells[4].innerHTML;
+                            document.getElementById("Email").value = this.cells[5].innerHTML;
+                };
+        }
+
+    }
+
+    </script>
+    <!-- <script>
+        var list = JSON.parse(localStorage.getItem('nhacungcap')) || [];
+
+        function ThemNhaCungCap(){
+            var mancc = document.getElementById('mancc').value;
+            var tenncc = document.getElementById('tenncc').value;
+            var sdt = document.getElementById('sdt').value;
+            var email = document.getElementById('email').value;
+            var diachi = document.getElementById('diachi').value;
+            var atdop = email.indexOf("@");
+            var dot = email.lastIndexOf(".");
+            
+
+            if(mancc == null || mancc == ""){
+                alert("Mã nhà cung cấp không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(tenncc == null || tenncc == ""){
+                alert("Tên nhà cung cấp không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(sdt == "" || isNaN(sdt) || sdt <= 11 ){
+                alert("Số điện thoại phải là kiểu số và không được lớn hơn 11 ! Vui lòng nhập lại")
+                return false
+            }
+            else if(email == null || email == ""){
+                alert("Email không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(atdop < 1 || dot < 1 ){
+                alert("Đây không phải là email")
+                return false;
+            }
+            else if(diachi == null || diachi == ""){
+                alert("Địa chỉ không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+
+            for(x of list){
+                if(x.mancc == mancc){
+                    alert("Mã nhà cung cấp đã tồn tại! Vui lòng nhập lại")
+                    return false;
+                }
+            }
+
+
+            if(list == null) list = [];
+            var ncc = {
+                'mancc': mancc,
+                'tenncc': tenncc,
+                'sdt': sdt,
+                'email': email,
+                'diachi': diachi,
+            }
+            list.push(ncc);
+            localStorage.setItem('nhacungcap', JSON.stringify(list));
+            alert("Thêm thành công")
+            location.reload();
+        }
+
+        function loaddata() {
+            let str = "";
+            let sl = 0;
+            for(x of list) {
+                sl++
+                str += `<tr>
+                            <td>${x.mancc}</td>
+                            <td>${x.tenncc}</td>
+                            <td>${x.sdt}</td>
+                            <td>${x.email}</td>
+                            <td>${x.diachi}</td>
+                            <td>
+                                <i class="fa-solid fa-pen-to-square"  onclick="SuaNcc('${x.mancc}')"></i>
+                                <i class="fa-solid fa-trash-can" onclick="Xoancc('${x.mancc}')"></i>
+                            </td>
+                        </tr>`;
+            }
+            document.getElementById('listproduct').innerHTML = str;
+            document.getElementById('soluongncc').innerHTML = sl;
+        }
+        loaddata();
+
+        function NhapMoi(){
+            var mancc = document.getElementById('mancc').value = "";
+            var tenncc = document.getElementById('tenncc').value = "";
+            var sdt = document.getElementById('sdt').value = "";
+            var email = document.getElementById('email').value = "";
+            var diachi = document.getElementById('diachi').value = "";
+        }
+
+        function SuaNcc(mancc){
+            for(x of list) {
+                if(x.mancc == mancc) {
+                    document.getElementById('mancc').value = x.mancc;
+                    document.getElementById('tenncc').value = x.tenncc;
+                    document.getElementById('sdt').value = x.sdt;
+                    document.getElementById('email').value = x.email;
+                    document.getElementById('diachi').value = x.diachi;
+                }
+            }
+        }
+
+        function Xoancc(mancc){
+            if(confirm("Bạn có muốn xóa nhà cung cấp")){
+                var index = list.findIndex(function(x){
+                    return x.mancc == mancc 
+                })
+                if(index >= 0){
+                    list.splice(index,1)
+                }
+                localStorage.setItem('nhacungcap', JSON.stringify(list));
+                location.reload();
+            }
+        }
+
+        function CapNhap(){
+            // alert("hi")
+            var mancc = document.getElementById('mancc').value;
+            var tenncc = document.getElementById('tenncc').value;
+            var sdt = document.getElementById('sdt').value;
+            var email = document.getElementById('email').value;
+            var diachi = document.getElementById('diachi').value;
+            var atdop = email.indexOf("@");
+            var dot = email.lastIndexOf(".");
+            var ok = true;
+
+            if(mancc == null || mancc == ""){
+                alert("Mã nhà cung cấp không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(tenncc == null || tenncc == ""){
+                alert("Tên nhà cung cấp không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(sdt == "" || isNaN(sdt) || sdt <= 11 ){
+                alert("Số điện thoại phải là kiểu số và không được lớn hơn 11 ! Vui lòng nhập lại")
+                return false
+            }
+            else if(email == null || email == ""){
+                alert("Email không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+            else if(atdop < 1 || dot < 1 ){
+                alert("Đây không phải là email")
+                return false;
+            }
+            else if(diachi == null || diachi == ""){
+                alert("Địa chỉ không được để trống ! Vui lòng nhập lại")
+                return false;
+            }
+
+            for(x of list) {
+                if(x.mancc == mancc){
+                    // x.mancc = mancc;
+                    x.tenncc = tenncc;
+                    x.sdt = sdt;
+                    x.email = email;
+                    x.diachi = diachi;
+                    ok = false;
+                    break;
+                }
+            }
+            if(ok == false){
+                alert("Cập nhập thành công")
+                localStorage.setItem("nhacungcap", JSON.stringify(list))
+                location.reload();
+            }
+            else{
+                alert("Cập nhập thông tin thất bại")
+            }
+        }
+
+
+        function XoaChon(){
+            alert("Bạn có muốn xóa không")
+            localStorage.setItem("nhacungcap", null) 
+            location.reload();
+            
+        }
+
+    </script> -->
+</body>
+</html>

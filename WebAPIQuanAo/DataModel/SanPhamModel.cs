@@ -15,4 +15,5 @@ namespace DataModel
         public string? AnhHover { get; set; }
         public string? AnhHover1 { get; set; }
     }
+
 }

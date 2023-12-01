@@ -45,6 +45,21 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+        public List<TaiKhoanModel> GetAll()
+        {
+            string msgErrror = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgErrror, "sp_taikhoan_get_all");
+                if (!string.IsNullOrEmpty(msgErrror))
+                    throw new Exception(msgErrror);
+                return dt.ConvertTo<TaiKhoanModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public bool Create(TaiKhoanModel model)
         {
@@ -57,7 +72,7 @@ namespace DataAccessLayer
                "@loaitaikhoan", model.LoaiTaiKhoan,
                "@tentaikhoan", model.TenTaiKhoan,
                "@matkhau", model.MatKhau,
-               "@Sđt", model.SĐT,
+               "@Sdt", model.Sdt,
                "@Email", model.Email);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
@@ -83,7 +98,7 @@ namespace DataAccessLayer
                "@loaitaikhoan", model.LoaiTaiKhoan,
                "@tentaikhoan", model.TenTaiKhoan,
                "@matkhau", model.MatKhau,
-               "@Sđt", model.SĐT,
+               "@Sdt", model.Sdt,
                "@Email", model.Email);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {

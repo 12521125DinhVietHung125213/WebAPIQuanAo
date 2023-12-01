@@ -33,6 +33,18 @@ app.controller("LoaiSPCtrl", function ($scope, $http) {
     }
     $scope.LoadLoaiSP();
 
+    $scope.GetbyIDLSP = function (idlsp){
+        $http({
+            method : 'GET',
+            url : current_url + 'api/DanhMuc/get-by-id' +idlsp,
+
+        }).then (function(response){
+            debugger;
+            
+            $scope.listLoaiSP = [response.data];
+        })
+    };
+
     $scope.btntextlspud = "Cập nhật sản phẩm"
     $scope.updateLSP  = function (){
 
@@ -66,6 +78,14 @@ app.controller("LoaiSPCtrl", function ($scope, $http) {
 
 
     }
+
+    var idlsp = document.getElementById ('getbyidlsp')
+
+      var btnSearch = document.querySelector('button.btn-search')
+      btnSearch.onclick = ()=> {
+          console.log(idlsp.value);
+        $scope.GetbyIDLSP(idlsp.value)
+      }
 
 
 });

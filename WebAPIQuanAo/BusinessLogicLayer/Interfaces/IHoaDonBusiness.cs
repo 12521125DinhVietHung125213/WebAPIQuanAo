@@ -11,6 +11,7 @@ namespace BusinessLogicLayer
     {
         bool Create(HoaDonModel model);
         HoaDonModel GetDatabyID(string id);
+        List<HoaDonModelGetAll> GetAll();
 
         bool Update(HoaDonModel model);
         bool Delete(string MaHoaDon);

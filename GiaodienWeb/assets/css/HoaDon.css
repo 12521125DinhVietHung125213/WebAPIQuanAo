@@ -20,7 +20,7 @@ body{
 .grid{
     
     max-width: 100%;
-    width: 1200px;
+    width: 1500px;
     margin: 0 auto;
 }
 .grid__row{
@@ -28,17 +28,17 @@ body{
     flex-wrap: wrap;
 }
 .grid__col1{
-    width: 16.66667%;
+    width: 14.66667%;
 }
 .grid__col11{
-    width: 83.33333%;
+    width: 85.33333%;
 }
 .grid__col11-col4{
-    width: 41.66667%;
+    width: 31.66667%;
     /* width: 33.33333%; */
 }
 .grid__col11-col8{
-    width: 58.33333%;
+    width: 68.33333%;
     /* width: 66.66667%; */
 }
 .header{

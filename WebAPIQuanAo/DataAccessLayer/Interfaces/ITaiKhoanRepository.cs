@@ -14,6 +14,7 @@ namespace DataAccessLayer
         TaiKhoanModel GetDatabyID(string id);
         bool Update(TaiKhoanModel model);
         bool Delete(string MaKhachHang);
+        List<TaiKhoanModel> GetAll();
 
     }
 }

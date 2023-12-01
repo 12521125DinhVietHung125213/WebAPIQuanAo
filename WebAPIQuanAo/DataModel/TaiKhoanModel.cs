@@ -7,9 +7,9 @@
         public string? TenTaiKhoan { get; set; }
         public string? MatKhau { get; set; }
 
-        public string? SĐT { get; set; }
+        public string? Sdt { get; set; }
 
         public string? Email { get; set; }
-        public string? token { get; set; }
+        //public string? token { get; set; }
     }
 }

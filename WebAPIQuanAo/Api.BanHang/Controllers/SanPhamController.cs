@@ -29,7 +29,7 @@ namespace Api.BanHang.Controllers
             return _sanPhamBusiness.GetAll();
         }
 
-        [Route("get-Top3banchay")]
+        [Route("get-TopSpBanChay")]
         [HttpGet]
         public List<SanPhamBanChayModel> Top3banchay()
         {

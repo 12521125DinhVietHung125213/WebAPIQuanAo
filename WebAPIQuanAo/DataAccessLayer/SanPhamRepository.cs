@@ -167,7 +167,7 @@ namespace DataAccessLayer
             string msgErrror = "";
             try
             {
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgErrror, "sp_get_top3spham_hot");
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgErrror, "sp_get_top5spham_hot");
                 if (!string.IsNullOrEmpty(msgErrror))
                     throw new Exception(msgErrror);
                 return dt.ConvertTo<SanPhamBanChayModel>().ToList();

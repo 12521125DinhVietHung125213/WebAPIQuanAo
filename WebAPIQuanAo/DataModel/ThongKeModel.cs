@@ -13,6 +13,10 @@ namespace DataModel
         public float Gia { get; set; }
         public string? SoLuongMua { get; set; }
 
+        public string? AnhHover { get; set; }    
+
+        public string? AnhHover1 { get; set; }   
+
     }
 
     public class KhachHangMuaNhieuModel

@@ -36,7 +36,7 @@ namespace BusinessLogicLayer
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            user.token = tokenHandler.WriteToken(token);
+            //user.token = tokenHandler.WriteToken(token);
             return user;
         }
         public bool Create(TaiKhoanModel model)
@@ -50,6 +50,10 @@ namespace BusinessLogicLayer
         public bool Delete(string MakhachHang)
         {
             return _res.Delete(MakhachHang);
+        }
+        public List<TaiKhoanModel> GetAll()
+        {
+            return _res.GetAll();
         }
         public TaiKhoanModel GetDatabyID(string id)
         {
